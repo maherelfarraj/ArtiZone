@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, CheckCircle, Loader2, Sparkles } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 const GOLD = '#C4A882';
 const TAUPE = '#0E2A3A';
@@ -40,31 +41,42 @@ export default function NewsletterSignup({ variant = 'section', source }: Newsle
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.trim()) return;
 
-    // Track submit attempt
-    void trackEvent('form_submit', source ?? variant, email.trim());
+    const cleanEmail = email.trim().toLowerCase();
+    const cleanName = name.trim();
+
+    if (!cleanEmail) return;
+
+    void trackEvent('form_submit', source ?? variant, cleanEmail);
 
     setStatus('loading');
     setMessage('');
 
     try {
-      const res = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), name: name.trim() || undefined }),
-      });
-      const data = await res.json() as { success?: boolean; message?: string; error?: string };
+      const { error } = await supabase
+        .from('newsletter_subscribers')
+        .insert({
+          email: cleanEmail,
+          full_name: cleanName || null,
+          source: source ?? variant ?? 'website',
+        });
 
-      if (res.ok && data.success) {
-        setStatus('success');
-        setMessage(data.message || 'Thank you for subscribing!');
-        setEmail('');
-        setName('');
-      } else {
+      if (error) {
+        if (error.code === '23505') {
+          setStatus('error');
+          setMessage('This email is already subscribed.');
+          return;
+        }
+
         setStatus('error');
-        setMessage(data.error || 'Something went wrong. Please try again.');
+        setMessage('Could not subscribe right now. Please try again.');
+        return;
       }
+
+      setStatus('success');
+      setMessage('Thank you for subscribing!');
+      setEmail('');
+      setName('');
     } catch {
       setStatus('error');
       setMessage('Network error. Please try again.');
@@ -138,7 +150,6 @@ export default function NewsletterSignup({ variant = 'section', source }: Newsle
       className="py-16 sm:py-20 relative overflow-hidden"
       style={{ background: TAUPE }}
     >
-      {/* Decorative blobs */}
       <div
         className="hidden sm:block absolute -top-16 -right-16 w-64 h-64 rounded-full opacity-10 blur-3xl pointer-events-none"
         style={{ background: GOLD }}
@@ -150,7 +161,6 @@ export default function NewsletterSignup({ variant = 'section', source }: Newsle
 
       <div className="w-full max-w-screen-xl mx-auto px-5 sm:px-6 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
-
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -171,6 +181,7 @@ export default function NewsletterSignup({ variant = 'section', source }: Newsle
             >
               Get Exclusive Offers & Beauty Tips
             </h2>
+
             <p className="text-sm sm:text-base mb-8" style={{ color: 'rgba(249,245,240,0.65)' }}>
               Join our newsletter and be the first to know about special deals, new treatments, and expert skincare advice — straight to your inbox.
             </p>
@@ -191,7 +202,9 @@ export default function NewsletterSignup({ variant = 'section', source }: Newsle
                 >
                   <CheckCircle size={28} style={{ color: GOLD }} />
                 </div>
+
                 <p className="text-base font-semibold text-white">{message}</p>
+
                 <p className="text-sm" style={{ color: 'rgba(249,245,240,0.55)' }}>
                   We'll be in touch with the latest offers and tips.
                 </p>
@@ -206,7 +219,6 @@ export default function NewsletterSignup({ variant = 'section', source }: Newsle
                 onSubmit={handleSubmit}
                 className="flex flex-col gap-3"
               >
-                {/* Name + Email row */}
                 <div className="flex flex-col sm:flex-row gap-3">
                   <input
                     type="text"
@@ -223,6 +235,7 @@ export default function NewsletterSignup({ variant = 'section', source }: Newsle
                     onFocus={(e) => (e.target.style.borderColor = GOLD)}
                     onBlur={(e) => (e.target.style.borderColor = 'rgba(201,169,110,0.3)')}
                   />
+
                   <input
                     type="email"
                     value={email}
@@ -241,12 +254,12 @@ export default function NewsletterSignup({ variant = 'section', source }: Newsle
                   />
                 </div>
 
-                {/* Error message */}
                 {status === 'error' && (
-                  <p className="text-sm text-center" style={{ color: '#f87171' }}>{message}</p>
+                  <p className="text-sm text-center" style={{ color: '#f87171' }}>
+                    {message}
+                  </p>
                 )}
 
-                {/* Submit */}
                 <button
                   type="submit"
                   disabled={status === 'loading'}
@@ -267,7 +280,6 @@ export default function NewsletterSignup({ variant = 'section', source }: Newsle
               </motion.form>
             )}
           </AnimatePresence>
-
         </div>
       </div>
     </section>
