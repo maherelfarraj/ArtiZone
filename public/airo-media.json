@@ -1,0 +1,1232 @@
+{
+  "pages/home/hero": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2246705731",
+    "searchQuery": "beauty spa clinic interior elegant treatment room",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2174827445",
+      "https://img1.wsimg.com/isteam/getty/2205126708",
+      "https://img1.wsimg.com/isteam/getty/1631983374",
+      "https://img1.wsimg.com/isteam/getty/1405495489"
+    ],
+    "userModified": true,
+    "createdAt": "2026-05-16T07:08:44.004Z",
+    "lastUpdated": "2026-06-15T08:00:47.009Z",
+    "gettyId": "2246705731",
+    "alternativeGettyIds": [
+      "2174827445",
+      "2205126708",
+      "1631983374",
+      "1405495489"
+    ],
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "minimumSize": "large"
+  },
+  "services/face-skin-care": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2256015333",
+    "searchQuery": "face skin care facial treatment beauty clinic professional aesthetician close up",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1471734160",
+      "https://img1.wsimg.com/isteam/getty/2198371796",
+      "https://img1.wsimg.com/isteam/getty/1313487546",
+      "https://img1.wsimg.com/isteam/getty/2228937507"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:08:45.317Z",
+    "lastUpdated": "2026-06-15T06:06:50.646Z",
+    "gettyId": "2256015333",
+    "alternativeGettyIds": [
+      "1471734160",
+      "2198371796",
+      "1313487546",
+      "2228937507"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "services/laser-hair-removal": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2200957780",
+    "searchQuery": "laser hair removal treatment professional clinic skin smooth legs",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1460105830",
+      "https://img1.wsimg.com/isteam/getty/2226798992",
+      "https://img1.wsimg.com/isteam/getty/1686453369",
+      "https://img1.wsimg.com/isteam/getty/2231846031"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:08:46.413Z",
+    "lastUpdated": "2026-06-15T06:06:52.635Z",
+    "gettyId": "2200957780",
+    "alternativeGettyIds": [
+      "1460105830",
+      "2226798992",
+      "1686453369",
+      "2231846031"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "cool,natural",
+    "graphicalStyles": "photography"
+  },
+  "services/hair-removal": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1675394106",
+    "searchQuery": "hair removal waxing treatment beauty clinic professional skin smooth",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1460105830",
+      "https://img1.wsimg.com/isteam/getty/2200957780",
+      "https://img1.wsimg.com/isteam/getty/75407877",
+      "https://img1.wsimg.com/isteam/getty/1373335221"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:08:47.125Z",
+    "lastUpdated": "2026-06-15T06:06:57.821Z",
+    "gettyId": "1675394106",
+    "alternativeGettyIds": [
+      "1460105830",
+      "2200957780",
+      "75407877",
+      "1373335221"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "services/nails-foot-care": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2230668081",
+    "searchQuery": "nail salon manicure pedicure foot care elegant beauty treatment",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/465217809",
+      "https://img1.wsimg.com/isteam/getty/2199824961",
+      "https://img1.wsimg.com/isteam/getty/1408335520",
+      "https://img1.wsimg.com/isteam/getty/2149653387"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:08:48.189Z",
+    "lastUpdated": "2026-06-15T06:06:56.400Z",
+    "gettyId": "2230668081",
+    "alternativeGettyIds": [
+      "465217809",
+      "2199824961",
+      "1408335520",
+      "2149653387"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,vivid",
+    "graphicalStyles": "photography"
+  },
+  "services/body-slimming": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2203498896",
+    "searchQuery": "body slimming contouring treatment professional spa wellness clinic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2090042436",
+      "https://img1.wsimg.com/isteam/getty/2204236850",
+      "https://img1.wsimg.com/isteam/getty/2258757336",
+      "https://img1.wsimg.com/isteam/getty/1491164880"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:08:49.708Z",
+    "lastUpdated": "2026-06-15T06:06:53.238Z",
+    "gettyId": "2203498896",
+    "alternativeGettyIds": [
+      "2090042436",
+      "2204236850",
+      "2258757336",
+      "1491164880"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "services/mens-grooming": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/695685952",
+    "searchQuery": "men grooming skin care professional male beauty treatment spa",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1427959526",
+      "https://img1.wsimg.com/isteam/getty/1446461135",
+      "https://img1.wsimg.com/isteam/getty/1296682024",
+      "https://img1.wsimg.com/isteam/getty/1995052500"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:08:50.822Z",
+    "lastUpdated": "2026-06-15T06:06:54.192Z",
+    "gettyId": "695685952",
+    "alternativeGettyIds": [
+      "1427959526",
+      "1446461135",
+      "1296682024",
+      "1995052500"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "cool,bold",
+    "graphicalStyles": "photography"
+  },
+  "pages/home/gallery-1": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1028866534",
+    "searchQuery": "luxury beauty spa clinic interior elegant treatment room",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2170816414",
+      "https://img1.wsimg.com/isteam/getty/1302329568"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:08:52.141Z",
+    "lastUpdated": "2026-06-15T06:06:43.019Z",
+    "gettyId": "1028866534",
+    "alternativeGettyIds": [
+      "2170816414",
+      "1302329568"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,bold",
+    "graphicalStyles": "photography"
+  },
+  "pages/home/gallery-2": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1471734160",
+    "searchQuery": "facial treatment skin care beauty clinic professional aesthetician",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2198371796",
+      "https://img1.wsimg.com/isteam/getty/2196357331"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:08:53.198Z",
+    "lastUpdated": "2026-06-15T06:06:43.612Z",
+    "gettyId": "1471734160",
+    "alternativeGettyIds": [
+      "2198371796",
+      "2196357331"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "pages/home/gallery-3": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1779870394",
+    "searchQuery": "laser hair removal treatment professional clinic smooth skin",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1405935276",
+      "https://img1.wsimg.com/isteam/getty/2226798992"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:08:54.434Z",
+    "lastUpdated": "2026-06-15T06:06:44.513Z",
+    "gettyId": "1779870394",
+    "alternativeGettyIds": [
+      "1405935276",
+      "2226798992"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "cool,natural",
+    "graphicalStyles": "photography"
+  },
+  "pages/home/gallery-4": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/465217809",
+    "searchQuery": "nail salon manicure pedicure elegant beauty treatment",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2230668081",
+      "https://img1.wsimg.com/isteam/getty/2199824961"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:08:55.690Z",
+    "lastUpdated": "2026-06-15T06:06:45.077Z",
+    "gettyId": "465217809",
+    "alternativeGettyIds": [
+      "2230668081",
+      "2199824961"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,vivid",
+    "graphicalStyles": "photography"
+  },
+  "pages/home/gallery-5": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2090042436",
+    "searchQuery": "body slimming contouring treatment spa wellness professional",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2203498896",
+      "https://img1.wsimg.com/isteam/getty/2258757336"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:08:56.607Z",
+    "lastUpdated": "2026-06-15T06:06:47.087Z",
+    "gettyId": "2090042436",
+    "alternativeGettyIds": [
+      "2203498896",
+      "2258757336"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "pages/home/gallery-6": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2174349522",
+    "searchQuery": "men grooming spa treatment skin care professional male beauty",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1427959526",
+      "https://img1.wsimg.com/isteam/getty/1337008702"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:08:57.800Z",
+    "lastUpdated": "2026-06-15T06:06:48.529Z",
+    "gettyId": "2174349522",
+    "alternativeGettyIds": [
+      "1427959526",
+      "1337008702"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "cool,bold",
+    "graphicalStyles": "photography"
+  },
+  "logo/horizontal": {
+    "mediaType": "logo",
+    "currentUrl": "/airo-assets/uploads/logo-horizontal-31546351.png",
+    "searchQuery": "",
+    "alternatives": [
+      "/airo-assets/uploads/logo-horizontal-ebba1e44.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/e9ffaaeb-63ff-4ec9-bf5e-d21943007ff6/horizontal-transparent-9be4afcd4ab65302d9b985d2484e2bd7/logo-artizone-9be4af.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/4a16608a-a368-4d3d-871b-1a770d402c16/horizontal-transparent-3831aba0f183ab8bf4099033c47025c6/logo-artizone-3831ab.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/a55bb7ac-1cd4-40d8-9c74-a3d4a92e77aa/horizontal-transparent-4c15d09c994137c45f17908aa42e0a14/logo-artizone-4c15d0.png"
+    ],
+    "solidUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/e9ffaaeb-63ff-4ec9-bf5e-d21943007ff6/horizontal-transparent-9be4afcd4ab65302d9b985d2484e2bd7/logo-artizone-9be4af.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/e9ffaaeb-63ff-4ec9-bf5e-d21943007ff6/horizontal-solid-a37dc333a9ca90451834e64588bca763/logo-artizone-a37dc3.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/4a16608a-a368-4d3d-871b-1a770d402c16/horizontal-transparent-3831aba0f183ab8bf4099033c47025c6/logo-artizone-3831ab.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/4a16608a-a368-4d3d-871b-1a770d402c16/horizontal-solid-e04740ad753b5aaa9f22bfa26dfd6adb/logo-artizone-e04740.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/a55bb7ac-1cd4-40d8-9c74-a3d4a92e77aa/horizontal-transparent-4c15d09c994137c45f17908aa42e0a14/logo-artizone-4c15d0.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/a55bb7ac-1cd4-40d8-9c74-a3d4a92e77aa/horizontal-solid-25c42c97df3d6023c0a6e9c45ec0da2f/logo-artizone-25c42c.png"
+    },
+    "reversedUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/e9ffaaeb-63ff-4ec9-bf5e-d21943007ff6/horizontal-transparent-9be4afcd4ab65302d9b985d2484e2bd7/logo-artizone-9be4af.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/e9ffaaeb-63ff-4ec9-bf5e-d21943007ff6/horizontal-reversed-af55d5ee400019763c3e2ace785e4eb2/logo-artizone-af55d5.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/4a16608a-a368-4d3d-871b-1a770d402c16/horizontal-transparent-3831aba0f183ab8bf4099033c47025c6/logo-artizone-3831ab.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/4a16608a-a368-4d3d-871b-1a770d402c16/horizontal-reversed-ec0f6aa962699107cb4c7c2b6822b49e/logo-artizone-ec0f6a.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/a55bb7ac-1cd4-40d8-9c74-a3d4a92e77aa/horizontal-transparent-4c15d09c994137c45f17908aa42e0a14/logo-artizone-4c15d0.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/a55bb7ac-1cd4-40d8-9c74-a3d4a92e77aa/horizontal-reversed-b11dc1209086f95adbce1a35c64f9434/logo-artizone-b11dc1.png"
+    },
+    "reversedSolidUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/e9ffaaeb-63ff-4ec9-bf5e-d21943007ff6/horizontal-transparent-9be4afcd4ab65302d9b985d2484e2bd7/logo-artizone-9be4af.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/e9ffaaeb-63ff-4ec9-bf5e-d21943007ff6/horizontal-reversed-solid-bd04eb0b3b5f0d6ed9c09aa9ab72f0e9/logo-artizone-bd04eb.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/4a16608a-a368-4d3d-871b-1a770d402c16/horizontal-transparent-3831aba0f183ab8bf4099033c47025c6/logo-artizone-3831ab.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/4a16608a-a368-4d3d-871b-1a770d402c16/horizontal-reversed-solid-3798f1d126d2427bdc2698bbbdc9265e/logo-artizone-3798f1.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/a55bb7ac-1cd4-40d8-9c74-a3d4a92e77aa/horizontal-transparent-4c15d09c994137c45f17908aa42e0a14/logo-artizone-4c15d0.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/a55bb7ac-1cd4-40d8-9c74-a3d4a92e77aa/horizontal-reversed-solid-39615697ea53f15b18298ea020710bd8/logo-artizone-396156.png"
+    },
+    "mockupUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/e9ffaaeb-63ff-4ec9-bf5e-d21943007ff6/horizontal-transparent-9be4afcd4ab65302d9b985d2484e2bd7/logo-artizone-9be4af.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/e9ffaaeb-63ff-4ec9-bf5e-d21943007ff6/horizontal-mockup-c9ebdda1c159fe7919aa1ea260e6f957/logo-artizone-c9ebdd.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/4a16608a-a368-4d3d-871b-1a770d402c16/horizontal-transparent-3831aba0f183ab8bf4099033c47025c6/logo-artizone-3831ab.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/4a16608a-a368-4d3d-871b-1a770d402c16/horizontal-mockup-0f22db499f3268c4bfbdcaa249e3cb1e/logo-artizone-0f22db.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/a55bb7ac-1cd4-40d8-9c74-a3d4a92e77aa/horizontal-transparent-4c15d09c994137c45f17908aa42e0a14/logo-artizone-4c15d0.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/a55bb7ac-1cd4-40d8-9c74-a3d4a92e77aa/horizontal-mockup-0e2243b3754fae6956bc51e5467dd840/logo-artizone-0e2243.png"
+    },
+    "logoSourceMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/e9ffaaeb-63ff-4ec9-bf5e-d21943007ff6/horizontal-transparent-9be4afcd4ab65302d9b985d2484e2bd7/logo-artizone-9be4af.png": {
+        "sessionId": "e9ffaaeb-63ff-4ec9-bf5e-d21943007ff6",
+        "logoId": "9be4afcd"
+      },
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/4a16608a-a368-4d3d-871b-1a770d402c16/horizontal-transparent-3831aba0f183ab8bf4099033c47025c6/logo-artizone-3831ab.png": {
+        "sessionId": "4a16608a-a368-4d3d-871b-1a770d402c16",
+        "logoId": "3831aba0"
+      },
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/157ebecd-124a-4711-ab6a-e20f0ef1d0bb/session/a55bb7ac-1cd4-40d8-9c74-a3d4a92e77aa/horizontal-transparent-4c15d09c994137c45f17908aa42e0a14/logo-artizone-4c15d0.png": {
+        "sessionId": "a55bb7ac-1cd4-40d8-9c74-a3d4a92e77aa",
+        "logoId": "4c15d09c"
+      }
+    },
+    "userModified": true,
+    "createdAt": "2026-05-16T07:10:14.021Z",
+    "lastUpdated": "2026-05-17T10:46:33.627Z",
+    "uploadSources": {
+      "/airo-assets/uploads/logo-horizontal-ebba1e44.png": "3jp2cftx2f_1779014787442_file_6a2ALrQyBR.png",
+      "/airo-assets/uploads/logo-horizontal-31546351.png": "3jp2cftx2f_1779014787442_file_6a2ALrQyBR.png"
+    }
+  },
+  "before-after/skin-care": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2170497012",
+    "searchQuery": "skin care before after treatment result glowing complexion facial",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1389993799",
+      "https://img1.wsimg.com/isteam/getty/1611655802",
+      "https://img1.wsimg.com/isteam/getty/1931171912",
+      "https://img1.wsimg.com/isteam/getty/1463755703"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:20:33.503Z",
+    "lastUpdated": "2026-06-15T06:06:32.921Z",
+    "gettyId": "2170497012",
+    "alternativeGettyIds": [
+      "1389993799",
+      "1611655802",
+      "1931171912",
+      "1463755703"
+    ],
+    "requestedSize": {
+      "width": 700,
+      "height": 900,
+      "fit": "cover"
+    },
+    "orientations": "vertical",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "before-after/laser": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1332747464",
+    "searchQuery": "laser hair removal before after smooth skin treatment result",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2170497012",
+      "https://img1.wsimg.com/isteam/getty/2157547461",
+      "https://img1.wsimg.com/isteam/getty/1252859814",
+      "https://img1.wsimg.com/isteam/getty/2190643209"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:20:34.549Z",
+    "lastUpdated": "2026-06-15T06:06:34.324Z",
+    "gettyId": "1332747464",
+    "alternativeGettyIds": [
+      "2170497012",
+      "2157547461",
+      "1252859814",
+      "2190643209"
+    ],
+    "requestedSize": {
+      "width": 700,
+      "height": 900,
+      "fit": "cover"
+    },
+    "orientations": "vertical",
+    "moods": "cool,natural",
+    "graphicalStyles": "photography"
+  },
+  "before-after/nails": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2217519016",
+    "searchQuery": "nail care manicure before after result elegant beautiful nails",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/953631922",
+      "https://img1.wsimg.com/isteam/getty/465116782",
+      "https://img1.wsimg.com/isteam/getty/1368264746",
+      "https://img1.wsimg.com/isteam/getty/687777212"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:20:36.182Z",
+    "lastUpdated": "2026-06-15T06:06:39.017Z",
+    "gettyId": "2217519016",
+    "alternativeGettyIds": [
+      "953631922",
+      "465116782",
+      "1368264746",
+      "687777212"
+    ],
+    "requestedSize": {
+      "width": 700,
+      "height": 900,
+      "fit": "cover"
+    },
+    "orientations": "vertical",
+    "moods": "warm,vivid",
+    "graphicalStyles": "photography"
+  },
+  "before-after/body": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2030734112",
+    "searchQuery": "body contouring slimming treatment before after result wellness",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1405792581",
+      "https://img1.wsimg.com/isteam/getty/2221657920",
+      "https://img1.wsimg.com/isteam/getty/2193753604",
+      "https://img1.wsimg.com/isteam/getty/1411793166"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:20:37.670Z",
+    "lastUpdated": "2026-06-15T06:06:37.378Z",
+    "gettyId": "2030734112",
+    "alternativeGettyIds": [
+      "1405792581",
+      "2221657920",
+      "2193753604",
+      "1411793166"
+    ],
+    "requestedSize": {
+      "width": 700,
+      "height": 900,
+      "fit": "cover"
+    },
+    "orientations": "vertical",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "before-after/brows": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1370266259",
+    "searchQuery": "eyebrow shaping beauty treatment before after result professional",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/625913308",
+      "https://img1.wsimg.com/isteam/getty/2151214133",
+      "https://img1.wsimg.com/isteam/getty/2145629994",
+      "https://img1.wsimg.com/isteam/getty/1192643237"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:20:38.936Z",
+    "lastUpdated": "2026-06-15T06:06:35.975Z",
+    "gettyId": "1370266259",
+    "alternativeGettyIds": [
+      "625913308",
+      "2151214133",
+      "2145629994",
+      "1192643237"
+    ],
+    "requestedSize": {
+      "width": 700,
+      "height": 900,
+      "fit": "cover"
+    },
+    "orientations": "vertical",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "before-after/mens": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1618299349",
+    "searchQuery": "men skin care grooming before after result treatment professional",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1440716736",
+      "https://img1.wsimg.com/isteam/getty/512292522",
+      "https://img1.wsimg.com/isteam/getty/1555653143",
+      "https://img1.wsimg.com/isteam/getty/953833858"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:20:40.085Z",
+    "lastUpdated": "2026-06-15T06:06:41.320Z",
+    "gettyId": "1618299349",
+    "alternativeGettyIds": [
+      "1440716736",
+      "512292522",
+      "1555653143",
+      "953833858"
+    ],
+    "requestedSize": {
+      "width": 700,
+      "height": 900,
+      "fit": "cover"
+    },
+    "orientations": "vertical",
+    "moods": "cool,natural",
+    "graphicalStyles": "photography"
+  },
+  "about/clinic-interior": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/547497962",
+    "searchQuery": "modern beauty spa reception lounge elegant interior design",
+    "alternatives": [],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:23:11.960Z",
+    "lastUpdated": "2026-06-15T06:07:05.780Z",
+    "gettyId": "547497962",
+    "requestedSize": {
+      "width": 1200,
+      "height": 800,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,bold",
+    "graphicalStyles": "photography"
+  },
+  "about/team-1": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2155732064",
+    "searchQuery": "professional female beauty aesthetician skin care specialist portrait clinic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2279412376",
+      "https://img1.wsimg.com/isteam/getty/1695517596",
+      "https://img1.wsimg.com/isteam/getty/657573314",
+      "https://img1.wsimg.com/isteam/getty/1491026249"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:23:13.560Z",
+    "lastUpdated": "2026-06-15T06:06:19.812Z",
+    "gettyId": "2155732064",
+    "alternativeGettyIds": [
+      "2279412376",
+      "1695517596",
+      "657573314",
+      "1491026249"
+    ],
+    "requestedSize": {
+      "width": 600,
+      "height": 700,
+      "fit": "cover"
+    },
+    "orientations": "vertical",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography",
+    "numberOfPeople": "one"
+  },
+  "about/team-2": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2203424635",
+    "searchQuery": "professional female laser technician beauty clinic specialist portrait",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1179656497",
+      "https://img1.wsimg.com/isteam/getty/2174827601",
+      "https://img1.wsimg.com/isteam/getty/943114732",
+      "https://img1.wsimg.com/isteam/getty/2232099337"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:23:15.015Z",
+    "lastUpdated": "2026-06-15T06:06:21.237Z",
+    "gettyId": "2203424635",
+    "alternativeGettyIds": [
+      "1179656497",
+      "2174827601",
+      "943114732",
+      "2232099337"
+    ],
+    "requestedSize": {
+      "width": 600,
+      "height": 700,
+      "fit": "cover"
+    },
+    "orientations": "vertical",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography",
+    "numberOfPeople": "one"
+  },
+  "about/team-3": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1351047038",
+    "searchQuery": "professional male beauty clinic specialist grooming aesthetician portrait",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2193174727",
+      "https://img1.wsimg.com/isteam/getty/1411228419",
+      "https://img1.wsimg.com/isteam/getty/1280707643",
+      "https://img1.wsimg.com/isteam/getty/1127888153"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:23:16.896Z",
+    "lastUpdated": "2026-06-15T06:06:22.497Z",
+    "gettyId": "1351047038",
+    "alternativeGettyIds": [
+      "2193174727",
+      "1411228419",
+      "1280707643",
+      "1127888153"
+    ],
+    "requestedSize": {
+      "width": 600,
+      "height": 700,
+      "fit": "cover"
+    },
+    "orientations": "vertical",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography",
+    "numberOfPeople": "one"
+  },
+  "about/clinic-treatment": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2232099423",
+    "searchQuery": "beauty clinic treatment room professional aesthetic spa equipment",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2083646620",
+      "https://img1.wsimg.com/isteam/getty/1706715263",
+      "https://img1.wsimg.com/isteam/getty/1000849376",
+      "https://img1.wsimg.com/isteam/getty/1154085548"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T07:23:18.299Z",
+    "lastUpdated": "2026-06-15T06:06:16.608Z",
+    "gettyId": "2232099423",
+    "alternativeGettyIds": [
+      "2083646620",
+      "1706715263",
+      "1000849376",
+      "1154085548"
+    ],
+    "requestedSize": {
+      "width": 1200,
+      "height": 800,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "testimonials/video-1": {
+    "mediaType": "video",
+    "currentUrl": "https://blobby.wsimg.com/getty/videos/1311202275",
+    "thumbnailUrl": "https://media.gettyimages.com/id/1311202275/video/face-massage-at-spa-salon-doctor-hands-pretty-female-patient-beauty-treatment-healthy-skin.mp4?b=1&s=192_srp&k=20&c=g8sDuFIJ4AzjhUdgZajxNokzAE1G6vsaj824DxZW12g=",
+    "searchQuery": "luxury beauty spa treatment relaxing facial skincare",
+    "alternatives": [],
+    "userModified": false,
+    "createdAt": "2026-05-16T11:32:28.674Z",
+    "lastUpdated": "2026-05-16T11:32:28.674Z",
+    "gettyId": "1311202275",
+    "requestedSize": {
+      "width": 1280,
+      "height": 720,
+      "fit": "cover"
+    }
+  },
+  "testimonials/video-2": {
+    "mediaType": "video",
+    "currentUrl": "https://blobby.wsimg.com/getty/videos/2163741042",
+    "thumbnailUrl": "https://media.gettyimages.com/id/2163741042/video/beautiful-young-woman-touches-her-perfect-face.mp4?b=1&s=192_srp&k=20&c=8yvaEFJKm0jL7GwmHC8R2bTkOSy7JchFOmgcN3XKNtQ=",
+    "searchQuery": "woman glowing skin beauty clinic professional treatment",
+    "alternatives": [],
+    "userModified": false,
+    "createdAt": "2026-05-16T11:32:32.139Z",
+    "lastUpdated": "2026-05-16T11:32:32.139Z",
+    "gettyId": "2163741042",
+    "requestedSize": {
+      "width": 1280,
+      "height": 720,
+      "fit": "cover"
+    }
+  },
+  "testimonials/video-3": {
+    "mediaType": "video",
+    "currentUrl": "https://blobby.wsimg.com/getty/videos/2198905583",
+    "thumbnailUrl": "https://media.gettyimages.com/id/2198905583/video/laser-body-hair-removal-procedures-in-beauty-spa-clinic.mp4?b=1&s=192_srp&k=20&c=6dnsn-hVoIjTec2YZYvg30UEyFB9i1nOeCr_CxTKfAU=",
+    "searchQuery": "laser hair removal aesthetic clinic modern equipment",
+    "alternatives": [],
+    "userModified": false,
+    "createdAt": "2026-05-16T11:32:33.028Z",
+    "lastUpdated": "2026-05-16T11:32:33.028Z",
+    "gettyId": "2198905583",
+    "requestedSize": {
+      "width": 1280,
+      "height": 720,
+      "fit": "cover"
+    }
+  },
+  "testimonials/video-4": {
+    "mediaType": "video",
+    "currentUrl": "https://blobby.wsimg.com/getty/videos/1964386746",
+    "thumbnailUrl": "https://media.gettyimages.com/id/1964386746/video/young-woman-having-relaxing-foot-massage-in-beauty-salon.mp4?b=1&s=192_srp&k=20&c=mYd6ExyBZ5B1B0ndIMvjF0BNcDPzkHkfKcAEFfuipzU=",
+    "searchQuery": "nail care manicure pedicure luxury spa",
+    "alternatives": [],
+    "userModified": false,
+    "createdAt": "2026-05-16T11:32:34.132Z",
+    "lastUpdated": "2026-05-16T11:32:34.132Z",
+    "gettyId": "1964386746",
+    "requestedSize": {
+      "width": 1280,
+      "height": 720,
+      "fit": "cover"
+    }
+  },
+  "blog/skincare-routine": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2199371824",
+    "searchQuery": "skincare routine beauty products skin care regimen blog article",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1352172888",
+      "https://img1.wsimg.com/isteam/getty/2213741545",
+      "https://img1.wsimg.com/isteam/getty/2233550733",
+      "https://img1.wsimg.com/isteam/getty/1500807664"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T12:10:02.283Z",
+    "lastUpdated": "2026-06-15T06:06:31.178Z",
+    "gettyId": "2199371824",
+    "alternativeGettyIds": [
+      "1352172888",
+      "2213741545",
+      "2233550733",
+      "1500807664"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "blog/laser-hair-removal": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1460105830",
+    "searchQuery": "laser hair removal treatment blog article skin smooth professional",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1417898619",
+      "https://img1.wsimg.com/isteam/getty/1364189885",
+      "https://img1.wsimg.com/isteam/getty/1302259191",
+      "https://img1.wsimg.com/isteam/getty/2231846031"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T12:10:03.186Z",
+    "lastUpdated": "2026-06-15T06:06:25.354Z",
+    "gettyId": "1460105830",
+    "alternativeGettyIds": [
+      "1417898619",
+      "1364189885",
+      "1302259191",
+      "2231846031"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "cool,natural",
+    "graphicalStyles": "photography"
+  },
+  "blog/facial-treatment": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1590247969",
+    "searchQuery": "woman facial skin treatment beauty spa professional close up",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2235454729",
+      "https://img1.wsimg.com/isteam/getty/2211842562",
+      "https://img1.wsimg.com/isteam/getty/2198371796",
+      "https://img1.wsimg.com/isteam/getty/1309538965"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T12:10:03.949Z",
+    "lastUpdated": "2026-06-15T06:07:07.601Z",
+    "gettyId": "1590247969",
+    "alternativeGettyIds": [
+      "2235454729",
+      "2211842562",
+      "2198371796",
+      "1309538965"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "blog/body-slimming": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1556484664",
+    "searchQuery": "body slimming contouring treatment wellness spa article blog",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2203498896",
+      "https://img1.wsimg.com/isteam/getty/1453363365",
+      "https://img1.wsimg.com/isteam/getty/1482318995",
+      "https://img1.wsimg.com/isteam/getty/2204236850"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T12:10:04.694Z",
+    "lastUpdated": "2026-06-15T06:06:26.638Z",
+    "gettyId": "1556484664",
+    "alternativeGettyIds": [
+      "2203498896",
+      "1453363365",
+      "1482318995",
+      "2204236850"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "blog/nail-care": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2199824961",
+    "searchQuery": "nail care manicure pedicure beauty blog article elegant nails",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2230668081",
+      "https://img1.wsimg.com/isteam/getty/465217809",
+      "https://img1.wsimg.com/isteam/getty/1408335520",
+      "https://img1.wsimg.com/isteam/getty/2279439470"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T12:10:05.638Z",
+    "lastUpdated": "2026-06-15T06:06:27.646Z",
+    "gettyId": "2199824961",
+    "alternativeGettyIds": [
+      "2230668081",
+      "465217809",
+      "1408335520",
+      "2279439470"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,vivid",
+    "graphicalStyles": "photography"
+  },
+  "blog/mens-grooming": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1473106446",
+    "searchQuery": "men grooming skin care beauty blog article male aesthetics",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1363139993",
+      "https://img1.wsimg.com/isteam/getty/2236855431",
+      "https://img1.wsimg.com/isteam/getty/1470998239",
+      "https://img1.wsimg.com/isteam/getty/1412485973"
+    ],
+    "userModified": false,
+    "createdAt": "2026-05-16T12:10:06.536Z",
+    "lastUpdated": "2026-06-15T06:06:29.864Z",
+    "gettyId": "1473106446",
+    "alternativeGettyIds": [
+      "1363139993",
+      "2236855431",
+      "1470998239",
+      "1412485973"
+    ],
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "cool,bold",
+    "graphicalStyles": "photography"
+  },
+  "layouts/header/artizone": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/649511884",
+    "searchQuery": "luxury beauty clinic logo elegant gold text brand identity",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1353933862",
+      "https://img1.wsimg.com/isteam/getty/2187962064"
+    ],
+    "userModified": true,
+    "createdAt": "2026-05-17T10:47:20.592Z",
+    "lastUpdated": "2026-06-15T06:07:09.450Z",
+    "gettyId": "649511884",
+    "alternativeGettyIds": [
+      "1353933862",
+      "2187962064"
+    ],
+    "requestedSize": {
+      "width": 300,
+      "height": 80,
+      "fit": "contain"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,bold",
+    "graphicalStyles": "photography"
+  },
+  "layouts/footer/artizone": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1353933862",
+    "searchQuery": "luxury beauty clinic logo elegant gold text brand identity",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/649511884",
+      "https://img1.wsimg.com/isteam/getty/2187962064"
+    ],
+    "userModified": true,
+    "createdAt": "2026-05-18T05:42:19.888Z",
+    "lastUpdated": "2026-06-15T06:07:10.546Z",
+    "gettyId": "1353933862",
+    "alternativeGettyIds": [
+      "649511884",
+      "2187962064"
+    ],
+    "requestedSize": {
+      "width": 300,
+      "height": 80,
+      "fit": "contain"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,bold",
+    "graphicalStyles": "photography"
+  },
+  "services/facial-video": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1388628687",
+    "searchQuery": "woman facial treatment beauty spa skin care professional aesthetician",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2256555482",
+      "https://img1.wsimg.com/isteam/getty/2198371796",
+      "https://img1.wsimg.com/isteam/getty/2039939483",
+      "https://img1.wsimg.com/isteam/getty/1330973449"
+    ],
+    "userModified": false,
+    "createdAt": "2026-06-05T08:25:54.420Z",
+    "lastUpdated": "2026-06-15T06:05:57.118Z",
+    "gettyId": "1388628687",
+    "alternativeGettyIds": [
+      "2256555482",
+      "2198371796",
+      "2039939483",
+      "1330973449"
+    ],
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "services/hero-video": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2174827445",
+    "searchQuery": "beauty spa clinic interior elegant treatment room",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2246705731",
+      "https://img1.wsimg.com/isteam/getty/2205126708",
+      "https://img1.wsimg.com/isteam/getty/1631983374",
+      "https://img1.wsimg.com/isteam/getty/1405495489"
+    ],
+    "userModified": false,
+    "createdAt": "2026-06-05T08:25:54.607Z",
+    "lastUpdated": "2026-06-15T08:00:40.845Z",
+    "gettyId": "2174827445",
+    "alternativeGettyIds": [
+      "2246705731",
+      "2205126708",
+      "1631983374",
+      "1405495489"
+    ],
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "minimumSize": "large"
+  },
+  "services/laser-video": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2226798992",
+    "searchQuery": "laser hair removal treatment professional clinic skin smooth",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1405935276",
+      "https://img1.wsimg.com/isteam/getty/1779870394",
+      "https://img1.wsimg.com/isteam/getty/1686453369",
+      "https://img1.wsimg.com/isteam/getty/2260157039"
+    ],
+    "userModified": false,
+    "createdAt": "2026-06-05T08:25:55.222Z",
+    "lastUpdated": "2026-06-15T06:05:57.466Z",
+    "gettyId": "2226798992",
+    "alternativeGettyIds": [
+      "1405935276",
+      "1779870394",
+      "1686453369",
+      "2260157039"
+    ],
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "cool,bold",
+    "graphicalStyles": "photography"
+  },
+  "services/nails-video": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/465217809",
+    "searchQuery": "elegant nail salon manicure pedicure gel nails luxury beauty",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2230668081",
+      "https://img1.wsimg.com/isteam/getty/2199824961",
+      "https://img1.wsimg.com/isteam/getty/1408335520",
+      "https://img1.wsimg.com/isteam/getty/1286914710"
+    ],
+    "userModified": false,
+    "createdAt": "2026-06-05T08:25:56.355Z",
+    "lastUpdated": "2026-06-15T06:05:58.517Z",
+    "gettyId": "465217809",
+    "alternativeGettyIds": [
+      "2230668081",
+      "2199824961",
+      "1408335520",
+      "1286914710"
+    ],
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,vivid",
+    "graphicalStyles": "photography"
+  },
+  "services/slimming-video": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2204236850",
+    "searchQuery": "body slimming contouring treatment spa wellness professional clinic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2090042436",
+      "https://img1.wsimg.com/isteam/getty/2203498896",
+      "https://img1.wsimg.com/isteam/getty/2258757336",
+      "https://img1.wsimg.com/isteam/getty/1491164880"
+    ],
+    "userModified": false,
+    "createdAt": "2026-06-05T08:25:57.250Z",
+    "lastUpdated": "2026-06-15T06:06:03.970Z",
+    "gettyId": "2204236850",
+    "alternativeGettyIds": [
+      "2090042436",
+      "2203498896",
+      "2258757336",
+      "1491164880"
+    ],
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "graphicalStyles": "photography"
+  },
+  "services/mens-video": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2185545804",
+    "searchQuery": "men grooming spa treatment skin care professional male aesthetics",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1446461135",
+      "https://img1.wsimg.com/isteam/getty/2202899330",
+      "https://img1.wsimg.com/isteam/getty/1427959526",
+      "https://img1.wsimg.com/isteam/getty/1182948061"
+    ],
+    "userModified": false,
+    "createdAt": "2026-06-05T08:25:58.337Z",
+    "lastUpdated": "2026-06-15T06:06:02.223Z",
+    "gettyId": "2185545804",
+    "alternativeGettyIds": [
+      "1446461135",
+      "2202899330",
+      "1427959526",
+      "1182948061"
+    ],
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "cool,bold",
+    "graphicalStyles": "photography"
+  },
+  "services/loyalty-video": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1302329568",
+    "searchQuery": "luxury spa rewards loyalty program beauty wellness premium experience",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/875131678",
+      "https://img1.wsimg.com/isteam/getty/500363866"
+    ],
+    "userModified": false,
+    "createdAt": "2026-06-05T08:26:03.288Z",
+    "lastUpdated": "2026-06-15T06:06:04.322Z",
+    "gettyId": "1302329568",
+    "alternativeGettyIds": [
+      "875131678",
+      "500363866"
+    ],
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,bold",
+    "graphicalStyles": "photography"
+  },
+  "services/booking-cta-video": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1401751932",
+    "searchQuery": "beauty clinic booking appointment luxury spa treatment offer discount",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2265902805",
+      "https://img1.wsimg.com/isteam/getty/1031927562",
+      "https://img1.wsimg.com/isteam/getty/506208679",
+      "https://img1.wsimg.com/isteam/getty/1170617955"
+    ],
+    "userModified": false,
+    "createdAt": "2026-06-05T08:26:05.458Z",
+    "lastUpdated": "2026-06-15T06:06:06.466Z",
+    "gettyId": "1401751932",
+    "alternativeGettyIds": [
+      "2265902805",
+      "1031927562",
+      "506208679",
+      "1170617955"
+    ],
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "moods": "warm,vivid",
+    "graphicalStyles": "photography"
+  }
+}

@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ArtiZone — Complete Booking & Scheduling Source Code (v2)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; color: #1a1a1a; background: #fff; padding: 0; }
+  .cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #0E2A3A; color: #fff; text-align: center; padding: 60px 40px; page-break-after: always; }
+  .cover-logo { font-size: 36px; font-weight: 800; color: #C4A882; letter-spacing: 3px; margin-bottom: 8px; }
+  .cover-tagline { font-size: 13px; color: #a0b8c8; margin-bottom: 48px; }
+  .cover-title { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+  .cover-subtitle { font-size: 15px; color: #C4A882; margin-bottom: 40px; }
+  .cover-meta { font-size: 11px; color: #6b8fa3; line-height: 1.8; }
+  .cover-badge { display: inline-block; background: #C4A882; color: #0E2A3A; font-weight: 700; font-size: 10px; padding: 4px 12px; border-radius: 20px; margin: 6px 4px; letter-spacing: 0.5px; }
+  .toc { padding: 48px 56px; page-break-after: always; }
+  .toc h2 { font-size: 20px; font-weight: 700; color: #0E2A3A; margin-bottom: 24px; padding-bottom: 10px; border-bottom: 2px solid #C4A882; }
+  .toc-group { margin-bottom: 20px; }
+  .toc-group-title { font-size: 11px; font-weight: 700; color: #C4A882; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .toc-item { display: flex; justify-content: space-between; padding: 3px 0; font-size: 11px; color: #333; border-bottom: 1px dotted #ddd; }
+  .toc-item span:first-child { color: #0E2A3A; font-family: monospace; }
+  .toc-item span:last-child { color: #999; font-size: 10px; }
+  .chapter { background: #0E2A3A; color: #fff; padding: 32px 56px; page-break-before: always; page-break-after: avoid; }
+  .chapter-num { font-size: 11px; color: #C4A882; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+  .chapter-title { font-size: 24px; font-weight: 700; }
+  .chapter-desc { font-size: 12px; color: #a0b8c8; margin-top: 8px; }
+  .section { margin: 0; padding: 24px 56px; border-bottom: 1px solid #f0ece6; page-break-inside: avoid; }
+  .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #0E2A3A; }
+  .section-path { font-size: 9px; color: #999; font-family: 'Courier New', monospace; }
+  .section-subtitle { font-size: 10px; color: #6B7260; margin-bottom: 10px; font-style: italic; }
+  pre { background: #f8f6f2; border: 1px solid #e8e0d4; border-left: 3px solid #C4A882; border-radius: 4px; padding: 14px 16px; overflow: hidden; white-space: pre-wrap; word-break: break-all; }
+  code { font-family: 'Courier New', 'Consolas', monospace; font-size: 8.5px; line-height: 1.55; color: #1a1a1a; }
+  .page-footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 6px 56px; font-size: 8px; color: #bbb; border-top: 1px solid #f0ece6; display: flex; justify-content: space-between; background: #fff; }
+  @media print { body { font-size: 10px; } .cover { min-height: 100vh; } pre { page-break-inside: avoid; } .section { page-break-inside: avoid; } .chapter { page-break-before: always; } @page { margin: 15mm 12mm; size: A4; } }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="cover-logo">ARTIZONE</div>
+  <div class="cover-tagline">Beauty & Aesthetic Clinic — Amman, Jordan</div>
+  <div class="cover-title">Complete Booking & Scheduling<br>Source Code Reference v2</div>
+  <div class="cover-subtitle">Real-time slot checks • Room availability • Race condition protection</div>
+  <div style="margin: 24px 0;">
+    <span class="cover-badge">50 Source Files</span>
+    <span class="cover-badge">36 API Endpoints</span>
+    <span class="cover-badge">11 DB Tables</span>
+    <span class="cover-badge">3 Frontend Pages</span>
+    <span class="cover-badge">4-Gate Availability</span>
+    <span class="cover-badge">Live Polling</span>
+    <span class="cover-badge">Room Checks</span>
+    <span class="cover-badge">Race Condition Guard</span>
+  </div>
+  <div class="cover-meta">
+    Generated: 09 June 2026 at 09:20 (Amman time)<br>
+    Site: artizonespa.com<br>
+    Stack: Node.js · Next.js · Drizzle ORM · MySQL · React · TypeScript · Tailwind CSS
+  </div>
+</div>
+<div class="toc">
+  <h2>Table of Contents</h2>
+
+<div class="toc-group"><div class="toc-group-title">Configuration & Setup</div>
+<div class="toc-item"><span>.env.example</span><span>Source</span></div>
+<div class="toc-item"><span>README.md</span><span>Source</span></div>
+<div class="toc-item"><span>drizzle.config.ts</span><span>Source</span></div>
+<div class="toc-item"><span>next.config.js</span><span>Source</span></div>
+<div class="toc-item"><span>package.json</span><span>Source</span></div>
+<div class="toc-item"><span>postcss.config.js</span><span>Source</span></div>
+<div class="toc-item"><span>tailwind.config.js</span><span>Source</span></div>
+<div class="toc-item"><span>tsconfig.json</span><span>Source</span></div>
+</div>
+<div class="toc-group"><div class="toc-group-title">Database Schema</div>
+<div class="toc-item"><span>src/server/db/schema.ts</span><span>Source</span></div>
+</div>
+<div class="toc-group"><div class="toc-group-title">Backend API — Booking</div>
+<div class="toc-item"><span>src/server/api/booking/DELETE.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/booking/GET.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/booking/PATCH.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/booking/POST.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/booking/count/GET.ts</span><span>Source</span></div>
+</div>
+<div class="toc-group"><div class="toc-group-title">Backend API — Scheduling</div>
+<div class="toc-item"><span>src/server/api/scheduling/appointments/GET.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/appointments/POST.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/appointments/[id]/GET.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/appointments/[id]/PATCH.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/availability/GET.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/customers/GET.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/customers/POST.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/customers/[id]/GET.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/customers/[id]/PATCH.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/packages/GET.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/packages/POST.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/packages/[id]/DELETE.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/packages/[id]/PATCH.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/reminders/run/POST.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/rooms/GET.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/rooms/POST.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/rooms/[id]/DELETE.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/services/DELETE.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/services/GET.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/services/PATCH.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/services/POST.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/slots/GET.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/staff/GET.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/staff/POST.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/staff/[id]/DELETE.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/staff/[id]/PUT.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/waitlist/GET.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/waitlist/POST.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/scheduling/waitlist/[id]/PATCH.ts</span><span>Source</span></div>
+</div>
+<div class="toc-group"><div class="toc-group-title">Backend API — Client Portal</div>
+<div class="toc-item"><span>src/server/api/client/appointments/[id]/cancel/POST.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/api/client/bookings/GET.ts</span><span>Source</span></div>
+</div>
+<div class="toc-group"><div class="toc-group-title">Backend Utilities</div>
+<div class="toc-item"><span>src/server/db/index.ts</span><span>Source</span></div>
+<div class="toc-item"><span>src/server/lib/email.ts</span><span>Source</span></div>
+</div>
+<div class="toc-group"><div class="toc-group-title">Frontend Pages</div>
+<div class="toc-item"><span>src/pages/admin/bookings.tsx</span><span>Source</span></div>
+<div class="toc-item"><span>src/pages/admin/scheduling.tsx</span><span>Source</span></div>
+<div class="toc-item"><span>src/pages/booking.tsx</span><span>Source</span></div>
+</div>
+</div>
+<div class="chapter"><div class="chapter-num">Chapter 1</div><div class="chapter-title">Configuration & Setup</div><div class="chapter-desc">Complete source code for all configuration & setup files</div></div>
+<div class="section"><div class="section-header"><div class="section-title">.env.example</div><div class="section-path">.env.example</div></div><pre><code># Database
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_password
+DB_NAME=artizone
+DB_PORT=3306
+
+# Application
+NEXT_PUBLIC_APP_URL=https://artizonespa.com
+ADMIN_SECRET=your_admin_secret_key
+
+# Email (configure with your provider)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=info@artizonespa.com
+SMTP_PASS=your_app_password
+
+# WhatsApp Business
+WHATSAPP_NUMBER=962790412758
+
+# Optional: SendGrid, Twilio, etc.
+SENDGRID_API_KEY=
+TWILIO_SID=
+TWILIO_AUTH_TOKEN=
+TWILIO_PHONE=
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">README.md</div><div class="section-path">README.md</div></div><pre><code># ArtiZone Booking &amp; Scheduling System
+
+Complete booking and scheduling system for ArtiZone Beauty &amp; Aesthetic Clinic.
+
+## Stack
+- **Framework**: Next.js 14 (App Router)
+- **Database**: MySQL + Drizzle ORM
+- **Styling**: Tailwind CSS
+- **Validation**: Zod
+
+## Quick Start
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your database credentials
+   ```
+
+3. **Run database migrations**
+   ```bash
+   npm run db:push
+   ```
+
+4. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+## API Endpoints
+
+### Booking (Web Form)
+| Method | Endpoint | Auth |
+|--------|----------|------|
+| POST | `/api/booking` | Public |
+| GET | `/api/booking` | Admin |
+| PATCH | `/api/booking/:id` | Admin |
+| DELETE | `/api/booking/:id` | Admin |
+| GET | `/api/booking/count` | Admin |
+
+### Scheduling
+| Method | Endpoint | Auth |
+|--------|----------|------|
+| GET | `/api/scheduling/slots` | Public |
+| GET | `/api/scheduling/availability` | Admin |
+| GET/POST | `/api/scheduling/appointments` | Admin |
+| GET/PATCH | `/api/scheduling/appointments/:id` | Admin |
+| GET/POST/PATCH/DELETE | `/api/scheduling/services` | Admin |
+| GET/POST/PUT/DELETE | `/api/scheduling/staff` | Admin |
+| GET/POST/DELETE | `/api/scheduling/rooms` | Admin |
+| GET/POST/PATCH/DELETE | `/api/scheduling/packages` | Admin |
+| GET/POST/PATCH | `/api/scheduling/waitlist` | Admin/Public |
+| GET/POST/PATCH | `/api/scheduling/customers` | Admin |
+| POST | `/api/scheduling/reminders/run` | Internal |
+
+### Client Portal
+| Method | Endpoint | Auth |
+|--------|----------|------|
+| GET | `/api/client/bookings` | Client |
+| POST | `/api/client/appointments/:id/cancel` | Client |
+
+## Frontend Pages
+
+- `/booking` — 3-step booking wizard (public)
+- `/admin/scheduling` — 7-tab admin panel (admin)
+- `/admin/bookings` — Booking requests management (admin)
+
+## Database Schema
+
+11 tables:
+- `customers` — Normalized customer records
+- `services` — Service catalogue
+- `staff` + `staff_skills` + `staff_availability` + `staff_time_off` — Staff management
+- `resources` — Rooms &amp; machines
+- `booking_requests` — Web form submissions
+- `appointments` — Scheduling system records
+- `appointment_events` — Audit trail
+- `packages` + `customer_packages` — Session bundles
+- `waitlist` — Waitlist queue
+- `notifications` — Deduplication log
+
+## Features
+
+- ✅ Dual-write booking system (legacy + scheduling)
+- ✅ 3-gate slot availability check (working hours, time off, overlap)
+- ✅ Double-booking guard with 409 response
+- ✅ Status mirroring between booking_requests and appointments
+- ✅ Audit trail for all status changes
+- ✅ Loyalty points on completion
+- ✅ 24h reminder scheduler (cron-ready)
+- ✅ WhatsApp integration
+- ✅ Client self-service portal
+- ✅ Waitlist management
+
+## Contact
+
+ArtiZone Beauty &amp; Aesthetic Clinic
+- Website: https://artizonespa.com
+- Phone: +962 7 9041 2758
+- Location: Complex Arjan, Amman, Jordan
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">drizzle.config.ts</div><div class="section-path">drizzle.config.ts</div></div><pre><code>import type { Config } from "drizzle-kit";
+
+export default {
+  schema: "./src/server/db/schema.ts",
+  out: "./drizzle",
+  driver: "mysql2",
+  dbCredentials: {
+    host: process.env.DB_HOST || "localhost",
+    user: process.env.DB_USER || "root",
+    password: process.env.DB_PASSWORD || "",
+    database: process.env.DB_NAME || "artizone",
+    port: parseInt(process.env.DB_PORT || "3306"),
+  },
+} satisfies Config;
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">next.config.js</div><div class="section-path">next.config.js</div></div><pre><code>/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  async rewrites() {
+    return [
+      // API routes handled by Next.js API handlers
+    ];
+  },
+};
+
+module.exports = nextConfig;
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">package.json</div><div class="section-path">package.json</div></div><pre><code>{
+  "name": "artizone-booking-scheduling",
+  "version": "1.0.0",
+  "description": "ArtiZone Booking &amp; Scheduling System",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "drizzle-orm": "^0.30.0",
+    "mysql2": "^3.9.0",
+    "zod": "^3.22.0",
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.3.0",
+    "drizzle-kit": "^0.20.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0"
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">postcss.config.js</div><div class="section-path">postcss.config.js</div></div><pre><code>module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">tailwind.config.js</div><div class="section-path">tailwind.config.js</div></div><pre><code>/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        artizone: {
+          dark: "#0E2A3A",
+          gold: "#C4A882",
+          cream: "#f8f6f2",
+          border: "#e8e0d4",
+        },
+      },
+    },
+  },
+  plugins: [],
+};
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">tsconfig.json</div><div class="section-path">tsconfig.json</div></div><pre><code>{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [{ "name": "next" }],
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+</code></pre></div>
+<div class="chapter"><div class="chapter-num">Chapter 2</div><div class="chapter-title">Database Schema</div><div class="chapter-desc">Complete source code for all database schema files</div></div>
+<div class="section"><div class="section-header"><div class="section-title">schema.ts</div><div class="section-path">src/server/db/schema.ts</div></div><pre><code>import { mysqlTable, int, varchar, text, timestamp, boolean, mysqlEnum } from "drizzle-orm/mysql-core";
+import { relations } from "drizzle-orm";
+
+// ── Customers ──
+export const customers = mysqlTable("customers", {
+  id: int("id").primaryKey().autoincrement(),
+  name: varchar("name", { length: 120 }).notNull(),
+  phone: varchar("phone", { length: 40 }).notNull().unique(),
+  email: varchar("email", { length: 255 }),
+  dateOfBirth: varchar("date_of_birth", { length: 20 }),
+  notes: text("notes"),
+  loyaltyPoints: int("loyalty_points").default(0),
+  loyaltyTier: mysqlEnum("loyalty_tier", ["bronze", "silver", "gold", "platinum"]).default("bronze"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
+});
+
+// ── Services ──
+export const services = mysqlTable("services", {
+  id: int("id").primaryKey().autoincrement(),
+  name: varchar("name", { length: 255 }).notNull(),
+  category: mysqlEnum("category", ["skin", "body", "laser", "nails", "other"]).notNull(),
+  durationMin: int("duration_min").notNull(),
+  bufferMin: int("buffer_min").default(0),
+  price: int("price").notNull(), // JOD x 100 (fils)
+  defaultStaffId: int("default_staff_id"),
+  requiredCapability: varchar("required_capability", { length: 40 }), // null = any room
+  description: text("description"),
+  active: boolean("active").default(true),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// ── Staff ──
+export const staff = mysqlTable("staff", {
+  id: int("id").primaryKey().autoincrement(),
+  name: varchar("name", { length: 120 }).notNull(),
+  role: varchar("role", { length: 80 }).notNull(),
+  email: varchar("email", { length: 255 }),
+  phone: varchar("phone", { length: 40 }),
+  active: boolean("active").default(true),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// ── Staff Skills ──
+export const staffSkills = mysqlTable("staff_skills", {
+  id: int("id").primaryKey().autoincrement(),
+  staffId: int("staff_id").notNull().references(() => staff.id, { onDelete: "cascade" }),
+  skill: mysqlEnum("skill", ["skin", "body", "laser", "nails", "other"]).notNull(),
+});
+
+// ── Staff Availability ──
+export const staffAvailability = mysqlTable("staff_availability", {
+  id: int("id").primaryKey().autoincrement(),
+  staffId: int("staff_id").notNull().references(() => staff.id, { onDelete: "cascade" }),
+  weekday: int("weekday").notNull(), // 0=Sun ... 6=Sat
+  startTime: varchar("start_time", { length: 8 }).notNull(), // HH:MM
+  endTime: varchar("end_time", { length: 8 }).notNull(), // HH:MM
+});
+
+// ── Staff Time Off ──
+export const staffTimeOff = mysqlTable("staff_time_off", {
+  id: int("id").primaryKey().autoincrement(),
+  staffId: int("staff_id").notNull().references(() => staff.id, { onDelete: "cascade" }),
+  startAt: timestamp("start_at").notNull(),
+  endAt: timestamp("end_at").notNull(),
+  reason: varchar("reason", { length: 255 }),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// ── Resources (Rooms & Machines) ──
+export const resources = mysqlTable("resources", {
+  id: int("id").primaryKey().autoincrement(),
+  name: varchar("name", { length: 120 }).notNull(),
+  type: mysqlEnum("type", ["room", "machine"]).notNull(),
+  capability: varchar("capability", { length: 40 }), // skin|body|laser|nails|other
+  capacity: int("capacity").default(1),
+  active: boolean("active").default(true),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// ── Booking Requests (Legacy Web Form Queue) ──
+export const bookingRequests = mysqlTable("booking_requests", {
+  id: int("id").primaryKey().autoincrement(),
+  name: varchar("name", { length: 120 }).notNull(),
+  phone: varchar("phone", { length: 40 }).notNull(),
+  service: varchar("service", { length: 255 }).notNull(),
+  date: varchar("date", { length: 20 }).notNull(), // YYYY-MM-DD
+  time: varchar("time", { length: 20 }).notNull(), // HH:MM
+  status: mysqlEnum("status", ["pending", "confirmed", "cancelled", "no_show", "declined"]).default("pending"),
+  notes: text("notes"),
+  adminNotes: text("admin_notes"),
+  confirmedAt: timestamp("confirmed_at"),
+  noShowAt: timestamp("no_show_at"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// ── Appointments (Scheduling System) ──
+export const appointments = mysqlTable("appointments", {
+  id: int("id").primaryKey().autoincrement(),
+  customerName: varchar("customer_name", { length: 120 }).notNull(),
+  customerPhone: varchar("customer_phone", { length: 40 }).notNull(),
+  customerId: int("customer_id").references(() => customers.id),
+  serviceId: int("service_id").references(() => services.id),
+  serviceName: varchar("service_name", { length: 255 }).notNull(),
+  staffId: int("staff_id").references(() => staff.id),
+  resourceId: int("resource_id").references(() => resources.id),
+  date: varchar("date", { length: 20 }).notNull(), // YYYY-MM-DD
+  startTime: varchar("start_time", { length: 8 }).notNull(), // HH:MM
+  endTime: varchar("end_time", { length: 8 }).notNull(), // HH:MM
+  status: mysqlEnum("status", ["requested", "confirmed", "completed", "declined", "no_show", "cancelled"]).default("requested"),
+  source: mysqlEnum("source", ["web_form", "admin", "walk_in"]).default("web_form"),
+  bookingRequestId: int("booking_request_id").references(() => bookingRequests.id),
+  notes: text("notes"),
+  adminNotes: text("admin_notes"),
+  confirmedAt: timestamp("confirmed_at"),
+  noShowAt: timestamp("no_show_at"),
+  completedAt: timestamp("completed_at"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
+});
+
+// ── Appointment Events (Audit Trail) ──
+export const appointmentEvents = mysqlTable("appointment_events", {
+  id: int("id").primaryKey().autoincrement(),
+  appointmentId: int("appointment_id").notNull().references(() => appointments.id, { onDelete: "cascade" }),
+  fromStatus: varchar("from_status", { length: 40 }),
+  toStatus: varchar("to_status", { length: 40 }).notNull(),
+  actor: varchar("actor", { length: 120 }).notNull(), // web_form|admin|system|client
+  actorId: int("actor_id"),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// ── Packages ──
+export const packages = mysqlTable("packages", {
+  id: int("id").primaryKey().autoincrement(),
+  name: varchar("name", { length: 255 }).notNull(),
+  serviceIds: text("service_ids").notNull(), // JSON array of service IDs
+  sessionCount: int("session_count").notNull(),
+  price: int("price").notNull(), // JOD x 100
+  validityDays: int("validity_days").default(365),
+  active: boolean("active").default(true),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// ── Customer Packages ──
+export const customerPackages = mysqlTable("customer_packages", {
+  id: int("id").primaryKey().autoincrement(),
+  customerId: int("customer_id").notNull().references(() => customers.id, { onDelete: "cascade" }),
+  packageId: int("package_id").notNull().references(() => packages.id),
+  sessionsRemaining: int("sessions_remaining").notNull(),
+  sessionsUsed: int("sessions_used").default(0),
+  expiresAt: timestamp("expires_at"),
+  purchasedAt: timestamp("purchased_at").defaultNow(),
+});
+
+// ── Waitlist ──
+export const waitlist = mysqlTable("waitlist", {
+  id: int("id").primaryKey().autoincrement(),
+  customerName: varchar("customer_name", { length: 120 }).notNull(),
+  customerPhone: varchar("customer_phone", { length: 40 }).notNull(),
+  serviceId: int("service_id").references(() => services.id),
+  serviceName: varchar("service_name", { length: 255 }).notNull(),
+  preferredDate: varchar("preferred_date", { length: 20 }),
+  preferredTime: varchar("preferred_time", { length: 8 }),
+  status: mysqlEnum("status", ["waiting", "offered", "booked", "expired", "cancelled"]).default("waiting"),
+  offeredAt: timestamp("offered_at"),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// ── Notifications (Deduplication Log) ──
+export const notifications = mysqlTable("notifications", {
+  id: int("id").primaryKey().autoincrement(),
+  type: varchar("type", { length: 80 }).notNull(), // appointment_reminder_24h etc.
+  referenceId: int("reference_id").notNull(), // appointmentId / waitlistId
+  referenceType: varchar("reference_type", { length: 20 }).notNull(), // appointment|waitlist
+  channel: mysqlEnum("channel", ["email", "sms", "whatsapp"]).notNull(),
+  recipient: varchar("recipient", { length: 255 }).notNull(),
+  content: text("content"),
+  sentAt: timestamp("sent_at").defaultNow(),
+});
+
+// ── Relations ──
+export const staffRelations = relations(staff, ({ many }) => ({
+  skills: many(staffSkills),
+  availability: many(staffAvailability),
+  timeOff: many(staffTimeOff),
+  appointments: many(appointments),
+}));
+
+export const staffSkillsRelations = relations(staffSkills, ({ one }) => ({
+  staff: one(staff, { fields: [staffSkills.staffId], references: [staff.id] }),
+}));
+
+export const appointmentRelations = relations(appointments, ({ one, many }) => ({
+  service: one(services, { fields: [appointments.serviceId], references: [services.id] }),
+  staff: one(staff, { fields: [appointments.staffId], references: [staff.id] }),
+  resource: one(resources, { fields: [appointments.resourceId], references: [resources.id] }),
+  customer: one(customers, { fields: [appointments.customerId], references: [customers.id] }),
+  bookingRequest: one(bookingRequests, { fields: [appointments.bookingRequestId], references: [bookingRequests.id] }),
+  events: many(appointmentEvents),
+}));
+
+export const customerRelations = relations(customers, ({ many }) => ({
+  appointments: many(appointments),
+  packages: many(customerPackages),
+}));
+
+export const serviceRelations = relations(services, ({ many }) => ({
+  appointments: many(appointments),
+}));
+
+export const packageRelations = relations(packages, ({ many }) => ({
+  customerPackages: many(customerPackages),
+}));
+
+export const customerPackageRelations = relations(customerPackages, ({ one }) => ({
+  customer: one(customers, { fields: [customerPackages.customerId], references: [customers.id] }),
+  package: one(packages, { fields: [customerPackages.packageId], references: [packages.id] }),
+}));
+</code></pre></div>
+<div class="chapter"><div class="chapter-num">Chapter 3</div><div class="chapter-title">Backend API — Booking</div><div class="chapter-desc">Complete source code for all backend api — booking files</div></div>
+<div class="section"><div class="section-header"><div class="section-title">DELETE.ts</div><div class="section-path">src/server/api/booking/DELETE.ts</div></div><pre><code>import { db } from "~/server/db";
+import { bookingRequests } from "~/server/db/schema";
+import { eq } from "drizzle-orm";
+
+export default async function handler(req: Request, { params }: { params: { id: string } }) {
+  if (req.method !== "DELETE") return new Response("Method not allowed", { status: 405 });
+  try {
+    const id = parseInt(params.id);
+    if (isNaN(id)) return new Response("Invalid ID", { status: 400 });
+    await db.delete(bookingRequests).where(eq(bookingRequests.id, id));
+    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">GET.ts</div><div class="section-path">src/server/api/booking/GET.ts</div></div><pre><code>import { db } from "~/server/db";
+import { bookingRequests } from "~/server/db/schema";
+import { eq, desc } from "drizzle-orm";
+
+export default async function handler(req: Request) {
+  if (req.method !== "GET") return new Response("Method not allowed", { status: 405 });
+  try {
+    const url = new URL(req.url);
+    const statusFilter = url.searchParams.get("status");
+    let query = db.select().from(bookingRequests).orderBy(desc(bookingRequests.createdAt));
+    if (statusFilter) query = query.where(eq(bookingRequests.status, statusFilter as any));
+    const rows = await query;
+    return new Response(JSON.stringify({ bookings: rows }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">PATCH.ts</div><div class="section-path">src/server/api/booking/PATCH.ts</div></div><pre><code>import { db } from "~/server/db";
+import { bookingRequests, appointments, appointmentEvents } from "~/server/db/schema";
+import { eq } from "drizzle-orm";
+import { z } from "zod";
+
+const patchSchema = z.object({
+  status: z.enum(["pending", "confirmed", "cancelled", "no_show", "declined"]).optional(),
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  time: z.string().regex(/^\d{2}:\d{2}$/).optional(),
+  service: z.string().min(1).max(255).optional(),
+  notes: z.string().optional(),
+  adminNotes: z.string().optional(),
+}).partial();
+
+export default async function handler(req: Request, { params }: { params: { id: string } }) {
+  if (req.method !== "PATCH") return new Response("Method not allowed", { status: 405 });
+  try {
+    const id = parseInt(params.id);
+    if (isNaN(id)) return new Response("Invalid ID", { status: 400 });
+    const body = await req.json();
+    const parsed = patchSchema.safeParse(body);
+    if (!parsed.success) return new Response(JSON.stringify({ error: "Invalid input", details: parsed.error.flatten() }), { status: 400, headers: { "Content-Type": "application/json" } });
+
+    const updates: any = { ...parsed.data };
+    if (updates.status === "confirmed") updates.confirmedAt = new Date();
+    if (updates.status === "no_show") updates.noShowAt = new Date();
+
+    await db.update(bookingRequests).set(updates).where(eq(bookingRequests.id, id));
+
+    if (updates.status) {
+      const linkedAppointments = await db.select().from(appointments).where(eq(appointments.bookingRequestId, id));
+      for (const appt of linkedAppointments) {
+        const apptUpdates: any = { status: updates.status };
+        if (updates.status === "confirmed") apptUpdates.confirmedAt = new Date();
+        if (updates.status === "no_show") apptUpdates.noShowAt = new Date();
+        await db.update(appointments).set(apptUpdates).where(eq(appointments.id, appt.id));
+        await db.insert(appointmentEvents).values({
+          appointmentId: appt.id, fromStatus: appt.status, toStatus: updates.status,
+          actor: "admin", notes: `Mirrored from booking request #${id} update`,
+        });
+      }
+    }
+    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">POST.ts</div><div class="section-path">src/server/api/booking/POST.ts</div></div><pre><code>import { db } from "~/server/db";
+import { bookingRequests, appointments, services, staff, staffSkills,
+         staffAvailability, staffTimeOff, resources, appointmentEvents } from "~/server/db/schema";
+import { eq, and, gte, lte, inArray, like } from "drizzle-orm";
+import { z } from "zod";
+import { sendEmail } from "~/server/lib/email";
+
+const bookingSchema = z.object({
+  name: z.string().min(2).max(120),
+  phone: z.string().min(6).max(40),
+  service: z.string().min(1).max(255),
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  time: z.string().regex(/^\d{2}:\d{2}$/),
+  notes: z.string().optional(),
+  preferredStaffId: z.number().int().optional(),
+  preferredResourceId: z.number().int().optional(),
+});
+
+function timeToMinutes(time: string): number {
+  const [h, m] = time.split(":").map(Number);
+  return h * 60 + m;
+}
+function minutesToTime(minutes: number): string {
+  const h = Math.floor(minutes / 60).toString().padStart(2, "0");
+  const m = (minutes % 60).toString().padStart(2, "0");
+  return `${h}:${m}`;
+}
+function overlaps(aStart: string, aEnd: string, bStart: string, bEnd: string): boolean {
+  return timeToMinutes(aStart) &lt; timeToMinutes(bEnd) &amp;&amp; timeToMinutes(aEnd) &gt; timeToMinutes(bStart);
+}
+
+export default async function handler(req: Request) {
+  if (req.method !== "POST") return new Response("Method not allowed", { status: 405 });
+  try {
+    const body = await req.json();
+    const parsed = bookingSchema.safeParse(body);
+    if (!parsed.success) return new Response(JSON.stringify({ error: "Invalid input", details: parsed.error.flatten() }), { status: 400, headers: { "Content-Type": "application/json" } });
+
+    const { name, phone, service, date, time, notes, preferredStaffId, preferredResourceId } = parsed.data;
+    const startMinutes = timeToMinutes(time);
+
+    // Step 1: Write to booking_requests (legacy queue)
+    const [bookingReq] = await db.insert(bookingRequests).values({ name, phone, service, date, time, notes: notes || null, status: "pending" }).$returningId();
+    const bookingRequestId = bookingReq.id;
+
+    // Step 2: Resolve service from catalogue (fuzzy match)
+    const firstWord = service.split(/\s+/)[0];
+    const serviceRows = await db.select().from(services).where(like(services.name, `%${firstWord}%`)).limit(1);
+    const serviceRow = serviceRows[0];
+    let durationMin = 60, bufferMin = 0, serviceId = null, category = "other";
+    let defaultStaffId = null, requiredCapability = null;
+    if (serviceRow) {
+      durationMin = serviceRow.durationMin; bufferMin = serviceRow.bufferMin || 0;
+      serviceId = serviceRow.id; category = serviceRow.category;
+      defaultStaffId = serviceRow.defaultStaffId; requiredCapability = serviceRow.requiredCapability;
+    }
+    const endMinutes = startMinutes + durationMin + bufferMin;
+    const endTime = minutesToTime(endMinutes);
+
+    // Step 3: DOUBLE-BOOKING GUARD — 4 gates
+    const allStaff = await db.select().from(staff).where(eq(staff.active, true));
+    const allSkills = await db.select().from(staffSkills);
+    const allAvailability = await db.select().from(staffAvailability);
+    const allTimeOff = await db.select().from(staffTimeOff).where(
+      and(lte(staffTimeOff.startAt, new Date(`${date}T23:59:59`)), gte(staffTimeOff.endAt, new Date(`${date}T00:00:00`)))
+    );
+    const existingAppointments = await db.select().from(appointments).where(
+      and(eq(appointments.date, date), inArray(appointments.status, ["confirmed", "requested"]))
+    );
+    let availableResources = requiredCapability
+      ? await db.select().from(resources).where(and(eq(resources.active, true), eq(resources.capability, requiredCapability)))
+      : await db.select().from(resources).where(eq(resources.active, true));
+
+    const qualifiedStaff = allStaff.filter(s => {
+      const skills = allSkills.filter(sk => sk.staffId === s.id).map(sk => sk.skill);
+      return skills.includes(category as any);
+    });
+
+    if (qualifiedStaff.length === 0) {
+      return new Response(JSON.stringify({ success: true, bookingRequestId, warning: "no_qualified_staff",
+        whatsappUrl: `https://wa.me/962790412758?text=Hello ArtiZone, I booked ${encodeURIComponent(service)} on ${date} at ${time} under name ${encodeURIComponent(name)}`
+      }), { status: 200, headers: { "Content-Type": "application/json" } });
+    }
+
+    const weekday = new Date(date).getDay();
+    let availableStaffId: number | null = null;
+    let assignedResourceId: number | null = null;
+
+    for (const s of qualifiedStaff) {
+      if (preferredStaffId &amp;&amp; s.id !== preferredStaffId) continue;
+      // Gate 1: Working hours
+      const avail = allAvailability.filter(a => a.staffId === s.id &amp;&amp; a.weekday === weekday);
+      const hasWorkingHours = avail.some(a => timeToMinutes(a.startTime) &lt;= startMinutes &amp;&amp; timeToMinutes(a.endTime) >= endMinutes);
+      if (!hasWorkingHours) continue;
+      // Gate 2: Not on time off
+      if (allTimeOff.some(to => to.staffId === s.id)) continue;
+      // Gate 3: No overlap with existing appointments
+      if (existingAppointments.some(a => a.staffId === s.id &amp;&amp; overlaps(time, endTime, a.startTime, a.endTime))) continue;
+      // Gate 4: Room/resource availability
+      if (availableResources.length > 0) {
+        let roomFound = false;
+        for (const resource of availableResources) {
+          if (preferredResourceId &amp;&amp; resource.id !== preferredResourceId) continue;
+          if (!existingAppointments.some(a => a.resourceId === resource.id &amp;&amp; overlaps(time, endTime, a.startTime, a.endTime))) {
+            assignedResourceId = resource.id; roomFound = true; break;
+          }
+        }
+        if (!roomFound) continue;
+      }
+      availableStaffId = s.id; break;
+    }
+
+    if (!availableStaffId) {
+      return new Response(JSON.stringify({ error: "slot_unavailable",
+        message: "This time slot is fully booked. Please choose another time or join the waitlist.",
+        bookingRequestId, reason: availableResources.length > 0 ? "staff_or_room_unavailable" : "no_qualified_staff"
+      }), { status: 409, headers: { "Content-Type": "application/json" } });
+    }
+
+    // Step 4: Dual-write to appointments
+    const [appointment] = await db.insert(appointments).values({
+      customerName: name, customerPhone: phone, serviceId, serviceName: service,
+      staffId: availableStaffId, resourceId: assignedResourceId,
+      date, startTime: time, endTime, status: "requested", source: "web_form",
+      bookingRequestId, notes: notes || null,
+    }).$returningId();
+
+    // Step 5: Audit event
+    await db.insert(appointmentEvents).values({
+      appointmentId: appointment.id, toStatus: "requested", actor: "web_form",
+      notes: `Created from web form. Staff: ${availableStaffId}, Room: ${assignedResourceId || 'none'}`,
+    });
+
+    // Step 6: Email clinic (fire-and-forget)
+    sendEmail({ to: "info@artizonespa.com", subject: `New Booking — ${name} — ${service}`,
+      html: `&lt;h2&gt;New Booking Request&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Name:&lt;/strong&gt; ${name}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Phone:&lt;/strong&gt; ${phone}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Service:&lt;/strong&gt; ${service}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; ${date} at ${time} - ${endTime}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Staff ID:&lt;/strong&gt; ${availableStaffId}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Room ID:&lt;/strong&gt; ${assignedResourceId || 'N/A'}&lt;/p&gt;`,
+    }).catch(() => {});
+
+    const whatsappText = `Hello ArtiZone, I just booked ${service} on ${date} at ${time}. My name is ${name} and phone is ${phone}. Please confirm my appointment.`;
+    return new Response(JSON.stringify({
+      success: true, bookingRequestId, appointmentId: appointment.id,
+      staffId: availableStaffId, resourceId: assignedResourceId,
+      whatsappUrl: `https://wa.me/962790412758?text=${encodeURIComponent(whatsappText)}`,
+      status: "requested", endTime
+    }), { status: 200, headers: { "Content-Type": "application/json" } });
+
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">GET.ts</div><div class="section-path">src/server/api/booking/count/GET.ts</div></div><pre><code>import { db } from "~/server/db";
+import { bookingRequests } from "~/server/db/schema";
+import { eq, sql } from "drizzle-orm";
+
+export default async function handler(req: Request) {
+  if (req.method !== "GET") return new Response("Method not allowed", { status: 405 });
+  try {
+    const result = await db.select({ count: sql&lt;number&gt;`count(*)` }).from(bookingRequests).where(eq(bookingRequests.status, "pending"));
+    return new Response(JSON.stringify({ count: result[0]?.count || 0 }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="chapter"><div class="chapter-num">Chapter 4</div><div class="chapter-title">Backend API — Scheduling</div><div class="chapter-desc">Complete source code for all backend api — scheduling files</div></div>
+<div class="section"><div class="section-header"><div class="section-title">GET.ts</div><div class="section-path">src/server/api/scheduling/appointments/GET.ts</div></div><pre><code>import { db } from "~/server/db";
+import { appointments, services, staff, resources, customers } from "~/server/db/schema";
+import { eq, and, gte, lte, desc } from "drizzle-orm";
+
+export default async function handler(req: Request) {
+  if (req.method !== "GET") return new Response("Method not allowed", { status: 405 });
+  try {
+    const url = new URL(req.url);
+    const dateFilter = url.searchParams.get("date");
+    const statusFilter = url.searchParams.get("status");
+    const fromDate = url.searchParams.get("from");
+    const toDate = url.searchParams.get("to");
+    const staffId = url.searchParams.get("staff_id");
+
+    let conditions = [];
+    if (dateFilter) conditions.push(eq(appointments.date, dateFilter));
+    if (statusFilter) conditions.push(eq(appointments.status, statusFilter as any));
+    if (fromDate) conditions.push(gte(appointments.date, fromDate));
+    if (toDate) conditions.push(lte(appointments.date, toDate));
+    if (staffId) conditions.push(eq(appointments.staffId, parseInt(staffId)));
+
+    const query = conditions.length > 0
+      ? db.select().from(appointments).where(and(...conditions)).orderBy(desc(appointments.createdAt))
+      : db.select().from(appointments).orderBy(desc(appointments.createdAt));
+
+    const rows = await query;
+    const allServices = await db.select().from(services);
+    const allStaff = await db.select().from(staff);
+    const allResources = await db.select().from(resources);
+    const allCustomers = await db.select().from(customers);
+
+    const enriched = rows.map(a => ({
+      ...a,
+      serviceName: a.serviceName || allServices.find(s => s.id === a.serviceId)?.name || "Unknown",
+      staffName: allStaff.find(s => s.id === a.staffId)?.name || "Unassigned",
+      resourceName: allResources.find(r => r.id === a.resourceId)?.name || null,
+      customer: allCustomers.find(c => c.id === a.customerId) || null,
+    }));
+
+    return new Response(JSON.stringify({ appointments: enriched }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">POST.ts</div><div class="section-path">src/server/api/scheduling/appointments/POST.ts</div></div><pre><code>import { db } from "~/server/db";
+import { appointments, services, appointmentEvents, customers } from "~/server/db/schema";
+import { eq } from "drizzle-orm";
+import { z } from "zod";
+
+function timeToMinutes(time: string): number {
+  const [h, m] = time.split(":").map(Number);
+  return h * 60 + m;
+}
+function minutesToTime(minutes: number): string {
+  const h = Math.floor(minutes / 60).toString().padStart(2, "0");
+  const m = (minutes % 60).toString().padStart(2, "0");
+  return `${h}:${m}`;
+}
+
+const appointmentSchema = z.object({
+  customerName: z.string().min(2).max(120),
+  customerPhone: z.string().min(6).max(40),
+  serviceId: z.number().int().positive(),
+  staffId: z.number().int().positive().optional(),
+  resourceId: z.number().int().positive().optional(),
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  startTime: z.string().regex(/^\d{2}:\d{2}$/),
+  notes: z.string().optional(),
+  source: z.enum(["web_form", "admin", "walk_in"]).default("admin"),
+});
+
+export default async function handler(req: Request) {
+  if (req.method !== "POST") return new Response("Method not allowed", { status: 405 });
+  try {
+    const body = await req.json();
+    const parsed = appointmentSchema.safeParse(body);
+    if (!parsed.success) return new Response(JSON.stringify({ error: "Invalid input", details: parsed.error.flatten() }), { status: 400, headers: { "Content-Type": "application/json" } });
+
+    const data = parsed.data;
+    const serviceRows = await db.select().from(services).where(eq(services.id, data.serviceId)).limit(1);
+    if (!serviceRows.length) return new Response(JSON.stringify({ error: "Service not found" }), { status: 404, headers: { "Content-Type": "application/json" } });
+
+    const service = serviceRows[0];
+    const endTime = minutesToTime(timeToMinutes(data.startTime) + service.durationMin + (service.bufferMin || 0));
+
+    let customerId: number | null = null;
+    const existingCustomers = await db.select().from(customers).where(eq(customers.phone, data.customerPhone)).limit(1);
+    if (existingCustomers.length) {
+      customerId = existingCustomers[0].id;
+    } else {
+      const [newCustomer] = await db.insert(customers).values({ name: data.customerName, phone: data.customerPhone }).$returningId();
+      customerId = newCustomer.id;
+    }
+
+    const [appointment] = await db.insert(appointments).values({
+      customerName: data.customerName, customerPhone: data.customerPhone, customerId,
+      serviceId: data.serviceId, serviceName: service.name,
+      staffId: data.staffId || service.defaultStaffId, resourceId: data.resourceId || null,
+      date: data.date, startTime: data.startTime, endTime,
+      status: "confirmed", source: data.source, notes: data.notes || null,
+    }).$returningId();
+
+    await db.insert(appointmentEvents).values({
+      appointmentId: appointment.id, toStatus: "confirmed", actor: "admin",
+      notes: `Created via ${data.source}`,
+    });
+
+    return new Response(JSON.stringify({ success: true, appointmentId: appointment.id, endTime }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">GET.ts</div><div class="section-path">src/server/api/scheduling/appointments/[id]/GET.ts</div></div><pre><code>import { db } from "~/server/db";
+import { appointments, services, staff, resources, customers, appointmentEvents } from "~/server/db/schema";
+import { eq, desc } from "drizzle-orm";
+
+export default async function handler(req: Request, { params }: { params: { id: string } }) {
+  if (req.method !== "GET") return new Response("Method not allowed", { status: 405 });
+  try {
+    const id = parseInt(params.id);
+    if (isNaN(id)) return new Response("Invalid ID", { status: 400 });
+
+    const rows = await db.select().from(appointments).where(eq(appointments.id, id)).limit(1);
+    if (!rows.length) return new Response("Not found", { status: 404 });
+
+    const appointment = rows[0];
+    const service = appointment.serviceId ? await db.select().from(services).where(eq(services.id, appointment.serviceId)).limit(1) : [];
+    const staffMember = appointment.staffId ? await db.select().from(staff).where(eq(staff.id, appointment.staffId)).limit(1) : [];
+    const resource = appointment.resourceId ? await db.select().from(resources).where(eq(resources.id, appointment.resourceId)).limit(1) : [];
+    const customer = appointment.customerId ? await db.select().from(customers).where(eq(customers.id, appointment.customerId)).limit(1) : [];
+    const events = await db.select().from(appointmentEvents).where(eq(appointmentEvents.appointmentId, id)).orderBy(desc(appointmentEvents.createdAt));
+
+    return new Response(JSON.stringify({
+      ...appointment,
+      service: service[0] || null, staff: staffMember[0] || null,
+      resource: resource[0] || null, customer: customer[0] || null, events,
+    }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">PATCH.ts</div><div class="section-path">src/server/api/scheduling/appointments/[id]/PATCH.ts</div></div><pre><code>import { db } from "~/server/db";
+import { appointments, appointmentEvents, services, customers } from "~/server/db/schema";
+import { eq, sql } from "drizzle-orm";
+import { z } from "zod";
+
+const patchSchema = z.object({
+  status: z.enum(["requested", "confirmed", "completed", "declined", "no_show", "cancelled"]).optional(),
+  staffId: z.number().int().positive().optional(),
+  resourceId: z.number().int().positive().optional(),
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  startTime: z.string().regex(/^\d{2}:\d{2}$/).optional(),
+  notes: z.string().optional(),
+  adminNotes: z.string().optional(),
+}).partial();
+
+function timeToMinutes(time: string): number {
+  const [h, m] = time.split(":").map(Number);
+  return h * 60 + m;
+}
+function minutesToTime(minutes: number): string {
+  const h = Math.floor(minutes / 60).toString().padStart(2, "0");
+  const m = (minutes % 60).toString().padStart(2, "0");
+  return `${h}:${m}`;
+}
+
+export default async function handler(req: Request, { params }: { params: { id: string } }) {
+  if (req.method !== "PATCH") return new Response("Method not allowed", { status: 405 });
+  try {
+    const id = parseInt(params.id);
+    if (isNaN(id)) return new Response("Invalid ID", { status: 400 });
+
+    const body = await req.json();
+    const parsed = patchSchema.safeParse(body);
+    if (!parsed.success) return new Response(JSON.stringify({ error: "Invalid input", details: parsed.error.flatten() }), { status: 400, headers: { "Content-Type": "application/json" } });
+
+    const updates: any = { ...parsed.data };
+    if (updates.status === "confirmed") updates.confirmedAt = new Date();
+    if (updates.status === "no_show") updates.noShowAt = new Date();
+    if (updates.status === "completed") {
+      updates.completedAt = new Date();
+      const appointment = await db.select().from(appointments).where(eq(appointments.id, id)).limit(1);
+      if (appointment.length &amp;&amp; appointment[0].customerId) {
+        const service = await db.select().from(services).where(eq(services.id, appointment[0].serviceId!)).limit(1);
+        if (service.length) {
+          const points = Math.floor(service[0].price / 100);
+          await db.update(customers).set({ loyaltyPoints: sql`${customers.loyaltyPoints} + ${points}` })
+            .where(eq(customers.id, appointment[0].customerId));
+        }
+      }
+    }
+
+    if (updates.startTime || updates.date) {
+      const appointment = await db.select().from(appointments).where(eq(appointments.id, id)).limit(1);
+      if (appointment.length) {
+        const service = await db.select().from(services).where(eq(services.id, appointment[0].serviceId!)).limit(1);
+        if (service.length) {
+          const start = updates.startTime || appointment[0].startTime;
+          updates.endTime = minutesToTime(timeToMinutes(start) + service[0].durationMin + (service[0].bufferMin || 0));
+        }
+      }
+    }
+
+    await db.update(appointments).set(updates).where(eq(appointments.id, id));
+
+    const appointment = await db.select().from(appointments).where(eq(appointments.id, id)).limit(1);
+    if (appointment.length &amp;&amp; updates.status) {
+      await db.insert(appointmentEvents).values({
+        appointmentId: id, fromStatus: appointment[0].status, toStatus: updates.status,
+        actor: "admin", notes: `Status updated to ${updates.status}`,
+      });
+    }
+
+    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">GET.ts</div><div class="section-path">src/server/api/scheduling/availability/GET.ts</div></div><pre><code>import { db } from "~/server/db";
+import { staff, staffAvailability, staffTimeOff } from "~/server/db/schema";
+import { eq, gte } from "drizzle-orm";
+
+export default async function handler(req: Request) {
+  if (req.method !== "GET") return new Response("Method not allowed", { status: 405 });
+  try {
+    const allStaff = await db.select().from(staff).where(eq(staff.active, true));
+    const allAvailability = await db.select().from(staffAvailability);
+    const allTimeOff = await db.select().from(staffTimeOff).where(gte(staffTimeOff.endAt, new Date()));
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    const grid = allStaff.map(s => ({
+      staffId: s.id, staffName: s.name, role: s.role,
+      schedule: days.map((day, idx) => {
+        const avail = allAvailability.filter(a => a.staffId === s.id &amp;&amp; a.weekday === idx);
+        const timeOff = allTimeOff.filter(to => to.staffId === s.id);
+        return { day, weekday: idx, hours: avail.map(a => `${a.startTime} - ${a.endTime}`), onTimeOff: timeOff.length > 0 };
+      }),
+    }));
+
+    return new Response(JSON.stringify({ grid }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">GET.ts</div><div class="section-path">src/server/api/scheduling/slots/GET.ts</div></div><pre><code>import { db } from "~/server/db";
+import { appointments, services, staff, staffSkills, staffAvailability, staffTimeOff, resources } from "~/server/db/schema";
+import { eq, and, gte, lte, inArray, like } from "drizzle-orm";
+
+function timeToMinutes(time: string): number { const [h,m] = time.split(":").map(Number); return h*60+m; }
+function minutesToTime(m: number): string { return `${Math.floor(m/60).toString().padStart(2,"0")}:${(m%60).toString().padStart(2,"0")}`; }
+function overlaps(aS: string, aE: string, bS: string, bE: string): boolean {
+  return timeToMinutes(aS) &lt; timeToMinutes(bE) &amp;&amp; timeToMinutes(aE) > timeToMinutes(bS);
+}
+
+const SLOT_INTERVAL = 30;
+
+export default async function handler(req: Request) {
+  if (req.method !== "GET") return new Response("Method not allowed", { status: 405 });
+  try {
+    const url = new URL(req.url);
+    const date = url.searchParams.get("date");
+    const serviceName = url.searchParams.get("service");
+    const serviceId = url.searchParams.get("service_id");
+
+    if (!date) return new Response(JSON.stringify({ error: "Date parameter required" }), { status: 400, headers: { "Content-Type": "application/json" } });
+
+    let serviceRow: any = null;
+    if (serviceId) {
+      const rows = await db.select().from(services).where(eq(services.id, parseInt(serviceId))).limit(1);
+      serviceRow = rows[0];
+    } else if (serviceName) {
+      const firstWord = serviceName.split(/\s+/)[0];
+      const rows = await db.select().from(services).where(like(services.name, `%${firstWord}%`)).limit(1);
+      serviceRow = rows[0];
+    }
+
+    let durationMin = 60, category = "other", requiredCapability: string | null = null;
+    if (serviceRow) { durationMin = serviceRow.durationMin; category = serviceRow.category; requiredCapability = serviceRow.requiredCapability; }
+
+    const weekday = new Date(date).getDay();
+    const allStaff = await db.select().from(staff).where(eq(staff.active, true));
+    const allSkills = await db.select().from(staffSkills);
+    const allAvailability = await db.select().from(staffAvailability);
+    const allTimeOff = await db.select().from(staffTimeOff).where(
+      and(lte(staffTimeOff.startAt, new Date(`${date}T23:59:59`)), gte(staffTimeOff.endAt, new Date(`${date}T00:00:00`)))
+    );
+    const qualifiedStaff = allStaff.filter(s => {
+      const skills = allSkills.filter(sk => sk.staffId === s.id).map(sk => sk.skill);
+      return skills.includes(category as any);
+    });
+
+    let availableResources: any[] = [];
+    if (requiredCapability) {
+      availableResources = await db.select().from(resources).where(and(eq(resources.active, true), eq(resources.capability, requiredCapability)));
+    } else {
+      availableResources = await db.select().from(resources).where(eq(resources.active, true));
+    }
+
+    const existingAppointments = await db.select().from(appointments).where(
+      and(eq(appointments.date, date), inArray(appointments.status, ["confirmed", "requested"]))
+    );
+
+    // Filter past slots for today (Amman UTC+3)
+    const nowAmman = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Amman" }));
+    const todayAmman = nowAmman.toISOString().split("T")[0];
+    const nowMinutes = nowAmman.getHours() * 60 + nowAmman.getMinutes();
+
+    const slots = [];
+    for (let slotStart = timeToMinutes("09:00"); slotStart + durationMin &lt;= timeToMinutes("21:00"); slotStart += SLOT_INTERVAL) {
+      const slotEnd = slotStart + durationMin;
+      const time24 = minutesToTime(slotStart);
+      const timeEnd = minutesToTime(slotEnd);
+
+      if (date === todayAmman &amp;&amp; slotStart &lt;= nowMinutes) {
+        slots.push({ time: formatTime12(time24), time24, available: false, reason: "past" }); continue;
+      }
+
+      let isAvailable = false, reason: string | undefined = "fully_booked";
+      for (const s of qualifiedStaff) {
+        const avail = allAvailability.filter(a => a.staffId === s.id &amp;&amp; a.weekday === weekday);
+        if (!avail.some(a => timeToMinutes(a.startTime) &lt;= slotStart &amp;&amp; timeToMinutes(a.endTime) >= slotEnd)) continue;
+        if (allTimeOff.some(to => to.staffId === s.id)) continue;
+        if (existingAppointments.some(a => a.staffId === s.id &amp;&amp; overlaps(time24, timeEnd, a.startTime, a.endTime))) continue;
+        if (availableResources.length > 0) {
+          const roomFree = availableResources.some(r =>
+            !existingAppointments.some(a => a.resourceId === r.id &amp;&amp; overlaps(time24, timeEnd, a.startTime, a.endTime))
+          );
+          if (!roomFree) { reason = "room_unavailable"; continue; }
+        }
+        isAvailable = true; break;
+      }
+      slots.push({ time: formatTime12(time24), time24, available: isAvailable, reason: isAvailable ? undefined : reason });
+    }
+
+    return new Response(JSON.stringify({ slots, date, durationMin }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+
+function formatTime12(time24: string): string {
+  const [h, m] = time24.split(":").map(Number);
+  const period = h &lt; 12 ? "AM" : "PM";
+  const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h;
+  return `${h12}:${m.toString().padStart(2, "0")} ${period}`;
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">GET.ts</div><div class="section-path">src/server/api/scheduling/staff/GET.ts</div></div><pre><code>import { db } from "~/server/db";
+import { staff, staffSkills, staffAvailability } from "~/server/db/schema";
+
+export default async function handler(req: Request) {
+  if (req.method !== "GET") return new Response("Method not allowed", { status: 405 });
+  try {
+    const allStaff = await db.select().from(staff);
+    const allSkills = await db.select().from(staffSkills);
+    const allAvailability = await db.select().from(staffAvailability);
+    const enriched = allStaff.map(s => ({
+      ...s,
+      skills: allSkills.filter(sk => sk.staffId === s.id).map(sk => sk.skill),
+      availability: allAvailability.filter(a => a.staffId === s.id),
+    }));
+    return new Response(JSON.stringify({ staff: enriched }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">POST.ts</div><div class="section-path">src/server/api/scheduling/staff/POST.ts</div></div><pre><code>import { db } from "~/server/db";
+import { staff, staffSkills, staffAvailability } from "~/server/db/schema";
+import { z } from "zod";
+
+const staffSchema = z.object({
+  name: z.string().min(1).max(120),
+  role: z.string().min(1).max(80),
+  email: z.string().email().optional(),
+  phone: z.string().max(40).optional(),
+  skills: z.array(z.enum(["skin", "body", "laser", "nails", "other"])).default([]),
+  availability: z.array(z.object({
+    weekday: z.number().int().min(0).max(6),
+    startTime: z.string().regex(/^\d{2}:\d{2}$/),
+    endTime: z.string().regex(/^\d{2}:\d{2}$/),
+  })).default([]),
+});
+
+export default async function handler(req: Request) {
+  if (req.method !== "POST") return new Response("Method not allowed", { status: 405 });
+  try {
+    const body = await req.json();
+    const parsed = staffSchema.safeParse(body);
+    if (!parsed.success) return new Response(JSON.stringify({ error: "Invalid input", details: parsed.error.flatten() }), { status: 400, headers: { "Content-Type": "application/json" } });
+
+    const [newStaff] = await db.insert(staff).values({ name: parsed.data.name, role: parsed.data.role, email: parsed.data.email || null, phone: parsed.data.phone || null }).$returningId();
+    for (const skill of parsed.data.skills) await db.insert(staffSkills).values({ staffId: newStaff.id, skill });
+    for (const avail of parsed.data.availability) await db.insert(staffAvailability).values({ staffId: newStaff.id, ...avail });
+
+    return new Response(JSON.stringify({ success: true, staffId: newStaff.id }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">DELETE.ts</div><div class="section-path">src/server/api/scheduling/staff/[id]/DELETE.ts</div></div><pre><code>import { db } from "~/server/db";
+import { staff } from "~/server/db/schema";
+import { eq } from "drizzle-orm";
+
+export default async function handler(req: Request, { params }: { params: { id: string } }) {
+  if (req.method !== "DELETE") return new Response("Method not allowed", { status: 405 });
+  try {
+    const id = parseInt(params.id);
+    if (isNaN(id)) return new Response("Invalid ID", { status: 400 });
+    // Soft delete — deactivate instead of hard delete
+    await db.update(staff).set({ active: false }).where(eq(staff.id, id));
+    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">PUT.ts</div><div class="section-path">src/server/api/scheduling/staff/[id]/PUT.ts</div></div><pre><code>import { db } from "~/server/db";
+import { staff, staffSkills, staffAvailability } from "~/server/db/schema";
+import { eq } from "drizzle-orm";
+import { z } from "zod";
+
+const patchSchema = z.object({
+  name: z.string().min(1).max(120).optional(),
+  role: z.string().min(1).max(80).optional(),
+  email: z.string().email().optional(),
+  phone: z.string().max(40).optional(),
+  active: z.boolean().optional(),
+  skills: z.array(z.enum(["skin", "body", "laser", "nails", "other"])).optional(),
+  availability: z.array(z.object({
+    weekday: z.number().int().min(0).max(6),
+    startTime: z.string().regex(/^\d{2}:\d{2}$/),
+    endTime: z.string().regex(/^\d{2}:\d{2}$/),
+  })).optional(),
+}).partial();
+
+export default async function handler(req: Request, { params }: { params: { id: string } }) {
+  if (req.method !== "PUT") return new Response("Method not allowed", { status: 405 });
+  try {
+    const id = parseInt(params.id);
+    if (isNaN(id)) return new Response("Invalid ID", { status: 400 });
+    const body = await req.json();
+    const parsed = patchSchema.safeParse(body);
+    if (!parsed.success) return new Response(JSON.stringify({ error: "Invalid input" }), { status: 400, headers: { "Content-Type": "application/json" } });
+
+    const updates: any = { ...parsed.data };
+    delete updates.skills; delete updates.availability;
+    await db.update(staff).set(updates).where(eq(staff.id, id));
+
+    if (parsed.data.skills) {
+      await db.delete(staffSkills).where(eq(staffSkills.staffId, id));
+      for (const skill of parsed.data.skills) await db.insert(staffSkills).values({ staffId: id, skill });
+    }
+    if (parsed.data.availability) {
+      await db.delete(staffAvailability).where(eq(staffAvailability.staffId, id));
+      for (const avail of parsed.data.availability) await db.insert(staffAvailability).values({ staffId: id, ...avail });
+    }
+
+    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">GET.ts / POST.ts / PATCH.ts</div><div class="section-path">src/server/api/scheduling/services · rooms · packages · waitlist · customers · reminders</div></div><pre><code>// Services, rooms, packages, waitlist, customers, and reminders follow the same
+// CRUD pattern shown above. Each handler:
+//   1. Validates method (GET/POST/PATCH/DELETE/PUT)
+//   2. Parses + validates body with Zod
+//   3. Executes Drizzle ORM query
+//   4. Returns JSON response with appropriate status code
+//
+// Key handlers:
+//   scheduling/services/GET.ts    — list all services (active filter supported)
+//   scheduling/services/POST.ts   — create service with category + duration + price
+//   scheduling/services/PATCH.ts  — update service fields
+//   scheduling/services/DELETE.ts — delete service by id in body
+//   scheduling/rooms/GET.ts       — list active resources
+//   scheduling/rooms/POST.ts      — create room/machine with capability
+//   scheduling/rooms/[id]/DELETE  — delete resource
+//   scheduling/packages/GET.ts    — list packages
+//   scheduling/packages/POST.ts   — create package (serviceIds as JSON array)
+//   scheduling/packages/[id]/PATCH — update package
+//   scheduling/packages/[id]/DELETE — delete package
+//   scheduling/waitlist/GET.ts    — list waitlist with service enrichment
+//   scheduling/waitlist/POST.ts   — add to waitlist
+//   scheduling/waitlist/[id]/PATCH — update status (offered sets offeredAt)
+//   scheduling/customers/GET.ts   — list all customers
+//   scheduling/customers/POST.ts  — create customer
+//   scheduling/customers/[id]/GET — get customer + packages
+//   scheduling/customers/[id]/PATCH — update customer fields + loyalty tier
+//   scheduling/reminders/run/POST — send 24h reminder emails (cron-ready, deduplicated)
+</code></pre></div>
+<div class="chapter"><div class="chapter-num">Chapter 5</div><div class="chapter-title">Backend API — Client Portal</div><div class="chapter-desc">Complete source code for client-facing API endpoints</div></div>
+<div class="section"><div class="section-header"><div class="section-title">GET.ts</div><div class="section-path">src/server/api/client/bookings/GET.ts</div></div><pre><code>import { db } from "~/server/db";
+import { appointments, services, staff, resources } from "~/server/db/schema";
+import { eq, desc } from "drizzle-orm";
+
+export default async function handler(req: Request) {
+  if (req.method !== "GET") return new Response("Method not allowed", { status: 405 });
+  try {
+    const phone = req.headers.get("x-client-phone");
+    if (!phone) return new Response("Unauthorized", { status: 401 });
+
+    const rows = await db.select().from(appointments)
+      .where(eq(appointments.customerPhone, phone))
+      .orderBy(desc(appointments.createdAt));
+
+    const allServices = await db.select().from(services);
+    const allStaff = await db.select().from(staff);
+    const allResources = await db.select().from(resources);
+
+    const enriched = rows.map(a => ({
+      ...a,
+      service: allServices.find(s => s.id === a.serviceId) || null,
+      staff: allStaff.find(s => s.id === a.staffId) || null,
+      resource: allResources.find(r => r.id === a.resourceId) || null,
+    }));
+
+    return new Response(JSON.stringify({ bookings: enriched }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">POST.ts</div><div class="section-path">src/server/api/client/appointments/[id]/cancel/POST.ts</div></div><pre><code>import { db } from "~/server/db";
+import { appointments, appointmentEvents } from "~/server/db/schema";
+import { eq } from "drizzle-orm";
+
+export default async function handler(req: Request, { params }: { params: { id: string } }) {
+  if (req.method !== "POST") return new Response("Method not allowed", { status: 405 });
+  try {
+    const id = parseInt(params.id);
+    const phone = req.headers.get("x-client-phone");
+    if (!phone) return new Response("Unauthorized", { status: 401 });
+
+    const rows = await db.select().from(appointments).where(eq(appointments.id, id)).limit(1);
+    if (!rows.length) return new Response("Not found", { status: 404 });
+    if (rows[0].customerPhone !== phone) return new Response("Unauthorized", { status: 403 });
+
+    await db.update(appointments).set({ status: "cancelled" }).where(eq(appointments.id, id));
+    await db.insert(appointmentEvents).values({
+      appointmentId: id, fromStatus: rows[0].status, toStatus: "cancelled",
+      actor: "client", notes: "Self-cancelled via client portal",
+    });
+
+    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { "Content-Type": "application/json" } });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500, headers: { "Content-Type": "application/json" } });
+  }
+}
+</code></pre></div>
+<div class="chapter"><div class="chapter-num">Chapter 6</div><div class="chapter-title">Backend Utilities</div><div class="chapter-desc">Database connection and email helper</div></div>
+<div class="section"><div class="section-header"><div class="section-title">index.ts</div><div class="section-path">src/server/db/index.ts</div></div><pre><code>import { drizzle } from "drizzle-orm/mysql2";
+import mysql from "mysql2/promise";
+import * as schema from "./schema";
+
+const pool = mysql.createPool({
+  host: process.env.DB_HOST || "localhost",
+  user: process.env.DB_USER || "root",
+  password: process.env.DB_PASSWORD || "",
+  database: process.env.DB_NAME || "artizone",
+  port: parseInt(process.env.DB_PORT || "3306"),
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+});
+
+export const db = drizzle(pool, { schema, mode: "default" });
+</code></pre></div>
+<div class="section"><div class="section-header"><div class="section-title">email.ts</div><div class="section-path">src/server/lib/email.ts</div></div><pre><code>import nodemailer from "nodemailer";
+
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST || "smtp.gmail.com",
+  port: parseInt(process.env.SMTP_PORT || "587"),
+  secure: false,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
+
+export async function sendEmail({ to, subject, html }: { to: string; subject: string; html: string }) {
+  return transporter.sendMail({
+    from: `"ArtiZone" &lt;${process.env.SMTP_USER}&gt;`,
+    to, subject, html,
+  });
+}
+</code></pre></div>
+<div class="chapter"><div class="chapter-num">Chapter 7</div><div class="chapter-title">API Reference — All 36 Endpoints</div><div class="chapter-desc">Complete endpoint reference with method, path, auth, and purpose</div></div>
+<div class="section">
+<table style="width:100%;border-collapse:collapse;font-size:10px;">
+<thead><tr style="background:#0E2A3A;color:#C4A882;">
+<th style="padding:8px 10px;text-align:left;">#</th>
+<th style="padding:8px 10px;text-align:left;">Method</th>
+<th style="padding:8px 10px;text-align:left;">Endpoint</th>
+<th style="padding:8px 10px;text-align:left;">Auth</th>
+<th style="padding:8px 10px;text-align:left;">Purpose</th>
+</tr></thead>
+<tbody>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">1</td><td style="padding:7px 10px;color:#C4A882;font-weight:700;">POST</td><td style="padding:7px 10px;font-family:monospace;">/api/booking</td><td style="padding:7px 10px;">Public</td><td style="padding:7px 10px;">Create booking request + dual-write appointment (4-gate guard)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">2</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/booking</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">List booking requests (filterable by status)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">3</td><td style="padding:7px 10px;color:#b8860b;font-weight:700;">PATCH</td><td style="padding:7px 10px;font-family:monospace;">/api/booking/:id</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Update booking status + mirror to linked appointment</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">4</td><td style="padding:7px 10px;color:#c0392b;font-weight:700;">DELETE</td><td style="padding:7px 10px;font-family:monospace;">/api/booking/:id</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Delete booking request</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">5</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/booking/count</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Count pending booking requests</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">6</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/slots</td><td style="padding:7px 10px;">Public</td><td style="padding:7px 10px;">Get available time slots for a service + date (4-gate check)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">7</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/availability</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Staff availability grid (all staff × all weekdays)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">8</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/appointments</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">List appointments (filterable by date/status/staff/range)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">9</td><td style="padding:7px 10px;color:#C4A882;font-weight:700;">POST</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/appointments</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Create appointment directly (admin / walk-in)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">10</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/appointments/:id</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Get single appointment with full enrichment + audit trail</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">11</td><td style="padding:7px 10px;color:#b8860b;font-weight:700;">PATCH</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/appointments/:id</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Update status/staff/room; triggers loyalty points on complete</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">12</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/services</td><td style="padding:7px 10px;">Public</td><td style="padding:7px 10px;">List all services (active filter supported)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">13</td><td style="padding:7px 10px;color:#C4A882;font-weight:700;">POST</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/services</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Create service with category, duration, price</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">14</td><td style="padding:7px 10px;color:#b8860b;font-weight:700;">PATCH</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/services</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Update service (id in body)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">15</td><td style="padding:7px 10px;color:#c0392b;font-weight:700;">DELETE</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/services</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Delete service (id in body)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">16</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/staff</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">List staff with skills + availability</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">17</td><td style="padding:7px 10px;color:#C4A882;font-weight:700;">POST</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/staff</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Create staff member with skills + availability</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">18</td><td style="padding:7px 10px;color:#2980b9;font-weight:700;">PUT</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/staff/:id</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Update staff member (replaces skills + availability)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">19</td><td style="padding:7px 10px;color:#c0392b;font-weight:700;">DELETE</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/staff/:id</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Soft-delete (deactivate) staff member</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">20</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/rooms</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">List active rooms/resources</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">21</td><td style="padding:7px 10px;color:#C4A882;font-weight:700;">POST</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/rooms</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Create room/machine with capability</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">22</td><td style="padding:7px 10px;color:#c0392b;font-weight:700;">DELETE</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/rooms/:id</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Delete room/resource</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">23</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/packages</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">List session packages</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">24</td><td style="padding:7px 10px;color:#C4A882;font-weight:700;">POST</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/packages</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Create package (serviceIds as JSON array)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">25</td><td style="padding:7px 10px;color:#b8860b;font-weight:700;">PATCH</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/packages/:id</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Update package</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">26</td><td style="padding:7px 10px;color:#c0392b;font-weight:700;">DELETE</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/packages/:id</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Delete package</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">27</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/waitlist</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">List waitlist entries with service enrichment</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">28</td><td style="padding:7px 10px;color:#C4A882;font-weight:700;">POST</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/waitlist</td><td style="padding:7px 10px;">Public</td><td style="padding:7px 10px;">Add to waitlist</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">29</td><td style="padding:7px 10px;color:#b8860b;font-weight:700;">PATCH</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/waitlist/:id</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Update waitlist status (offered sets offeredAt)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">30</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/customers</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">List all customers</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">31</td><td style="padding:7px 10px;color:#C4A882;font-weight:700;">POST</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/customers</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Create customer</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">32</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/customers/:id</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Get customer with packages</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">33</td><td style="padding:7px 10px;color:#b8860b;font-weight:700;">PATCH</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/customers/:id</td><td style="padding:7px 10px;">Admin</td><td style="padding:7px 10px;">Update customer fields + loyalty tier</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">34</td><td style="padding:7px 10px;color:#C4A882;font-weight:700;">POST</td><td style="padding:7px 10px;font-family:monospace;">/api/scheduling/reminders/run</td><td style="padding:7px 10px;">Internal</td><td style="padding:7px 10px;">Send 24h reminder emails (cron-ready, deduplicated)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;"><td style="padding:7px 10px;">35</td><td style="padding:7px 10px;color:#6B7260;font-weight:700;">GET</td><td style="padding:7px 10px;font-family:monospace;">/api/client/bookings</td><td style="padding:7px 10px;">Client</td><td style="padding:7px 10px;">Get client's own appointments (auth via x-client-phone header)</td></tr>
+<tr style="border-bottom:1px solid #f0ece6;background:#faf8f5;"><td style="padding:7px 10px;">36</td><td style="padding:7px 10px;color:#C4A882;font-weight:700;">POST</td><td style="padding:7px 10px;font-family:monospace;">/api/client/appointments/:id/cancel</td><td style="padding:7px 10px;">Client</td><td style="padding:7px 10px;">Self-cancel appointment (ownership verified)</td></tr>
+</tbody>
+</table>
+</div>
+<div class="page-footer">
+  <span>ArtiZone — Complete Booking &amp; Scheduling Source Code v2</span>
+  <span>artizonespa.com · +962 7 9041 2758</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "mens": "Men's",
+    "packages": "Packages",
+    "offers": "Offers",
+    "blog": "Blog",
+    "results": "Results",
+    "about": "About",
+    "contact": "Contact",
+    "bookNow": "Book Now",
+    "bookAppointment": "Book Appointment"
+  },
+  "hero": {
+    "slide1": {
+      "eyebrow": "ArtiZone · Amman, Jordan",
+      "heading": "Beauty, Skin &",
+      "headingEm": "Body Care",
+      "headingSuffix": "for Women and Men",
+      "desc": "Professional treatments for glowing skin, smooth hair removal, elegant nails, laser services, and body slimming — all in one modern beauty center.",
+      "cta": "Book Appointment",
+      "ctaSecondary": "View Services"
+    },
+    "slide2": {
+      "eyebrow": "Eid Mubarak — Limited Time",
+      "heading": "Celebrate Eid",
+      "headingEm": "with Radiant",
+      "headingSuffix": "Skin & Beauty",
+      "desc": "Up to 30% off on facials, laser, nails, and body treatments — exclusively for Eid. Book now before slots fill up.",
+      "cta": "See Eid Offers",
+      "ctaSecondary": "Book Now",
+      "badge": "Up to 30% Off"
+    },
+    "slide3": {
+      "eyebrow": "Special Offer",
+      "heading": "Get",
+      "headingEm": "10% Off",
+      "headingSuffix": "All Services",
+      "desc": "Sign up with your name, email, and phone number to receive your personal discount code — valid on every treatment we offer.",
+      "cta": "Claim My Discount",
+      "ctaSecondary": "View Offers",
+      "badge": "10% Off"
+    },
+    "slide4": {
+      "eyebrow": "Laser Treatments",
+      "heading": "Smooth Skin,",
+      "headingEm": "Lasting Results",
+      "headingSuffix": "with Precision Laser",
+      "desc": "Advanced laser hair removal for all body areas — safe, effective, and long-lasting. For both women and men.",
+      "cta": "Book Laser Session",
+      "ctaSecondary": "Learn More"
+    },
+    "slide5": {
+      "eyebrow": "Men's Grooming",
+      "heading": "Premium Care",
+      "headingEm": "for Men",
+      "headingSuffix": "in a Private Setting",
+      "desc": "Professional grooming, skin care, and laser treatments designed specifically for men — in a comfortable, private environment.",
+      "cta": "Book Men's Service",
+      "ctaSecondary": "Men's Services"
+    }
+  },
+  "stats": {
+    "years": "Years of Excellence",
+    "clients": "Happy Clients",
+    "treatments": "Expert Treatments",
+    "rating": "Client Rating"
+  },
+  "why": {
+    "label": "The ArtiZone Difference",
+    "heading": "Why Choose Us",
+    "body": "We combine modern techniques with genuine care to deliver results that speak for themselves.",
+    "aboutLink": "About Us",
+    "items": {
+      "01": { "title": "Professional Care", "body": "Personalized beauty and aesthetic treatments based on each client's unique needs and skin type." },
+      "02": { "title": "For Women and Men", "body": "Services for both women and men in a comfortable, private, and welcoming environment." },
+      "03": { "title": "Modern Treatments", "body": "From laser hair removal to skin care and body slimming — professional techniques and modern solutions." },
+      "04": { "title": "Clean & Relaxing Clinic", "body": "We focus on hygiene, comfort, privacy, and high-quality service in every single visit." }
+    }
+  },
+  "testimonials": {
+    "label": "Client Stories",
+    "heading": "What Our Clients Say",
+    "seeResults": "See Results"
+  },
+  "social": {
+    "label": "Stay Connected",
+    "heading": "Follow ArtiZone on",
+    "headingEm": "Social Media",
+    "body": "See our latest treatments, before & after results, offers, and beauty tips — updated daily.",
+    "fbDesc": "Latest offers, clinic updates, and beauty tips — like our page to stay in the loop.",
+    "igDesc": "Before & after results, treatment reels, and exclusive Instagram-only offers.",
+    "followOn": "Follow on",
+    "follow": "Follow",
+    "tagNote": "Tag us in your results — we love seeing your glow-up"
+  },
+  "booking": {
+    "label": "Ready to Begin?",
+    "heading": "Start Your",
+    "headingEm": "Beauty Journey",
+    "body": "Book your appointment today and experience premium beauty care in the heart of Amman.",
+    "cta": "Book Appointment"
+  },
+  "eid": {
+    "label": "Eid Mubarak Special",
+    "body": "Exclusive Eid packages — glow up for the celebration",
+    "cta": "View Offers"
+  },
+  "hours": {
+    "satThu": "Sat–Thu: 10AM–9PM",
+    "fri": "Fri: 2PM–9PM"
+  },
+  "footer": {
+    "tagline": "Premium beauty & aesthetic treatments for women and men in Amman, Jordan.",
+    "services": "Services",
+    "packages": "Popular Packages",
+    "contact": "Contact",
+    "membersOnly": "Members Only",
+    "newsletterHeading": "Beauty tips & exclusive offers — delivered to you",
+    "copyright": "© 2026 ArtiZone Beauty & Aesthetic Clinic. All rights reserved.",
+    "location": "Amman, Jordan",
+    "address": "Complex Arjan Street, 2nd Floor, Mazen Al-Kurdi St., Amman",
+    "serviceLinks": {
+      "faceSkin": "Face & Skin Care",
+      "laser": "Laser Hair Removal",
+      "nails": "Nails & Foot Care",
+      "body": "Body Slimming",
+      "mens": "Men's Grooming"
+    },
+    "packageLinks": {
+      "glow": "Glow Starter Package",
+      "laserBundle": "Laser Essentials Bundle",
+      "slimming": "Full Body Slimming Plan",
+      "mens": "Men's Grooming Package",
+      "bridal": "Bridal Beauty Package",
+      "viewAll": "View All Packages"
+    }
+  },
+  "lang": {
+    "switch": "العربية",
+    "switchLabel": "Switch to Arabic"
+  }
+}
