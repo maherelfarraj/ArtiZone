@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import type { RouteObject } from 'react-router-dom';
 import HomePage from './pages/index';
 // Eager import so renderToString doesn't hit a Suspense boundary on 404 routes
 // and abort to client rendering. The prod 404 page is tiny; the dev-tools

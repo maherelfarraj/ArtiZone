@@ -58,7 +58,7 @@ export async function render(url: string): Promise<RenderResult> {
   }
 
   const router = createStaticRouter(routeTree, context);
-  const helmetContext: { helmet?: HelmetServerState } = {};
+  let helmetState: HelmetServerState | undefined;
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -73,7 +73,7 @@ export async function render(url: string): Promise<RenderResult> {
 
   const html = renderToString(
     <StrictMode>
-      <HelmetProvider context={helmetContext}>
+      <HelmetProvider onServerState={(state) => { helmetState = state; }}>
         <QueryClientProvider client={queryClient}>
           <StaticRouterProvider router={router} context={context} />
         </QueryClientProvider>
@@ -81,7 +81,7 @@ export async function render(url: string): Promise<RenderResult> {
     </StrictMode>
   );
 
-  const h = helmetContext.helmet;
+  const h = helmetState;
   const head = h
     ? [
         h.title?.toString() ?? '',

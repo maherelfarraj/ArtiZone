@@ -635,7 +635,7 @@ if (import.meta.env.PROD) {
 	const server = app.listen(port, host, () => {
 		console.log(`Server listening on http://${host}:${port}`);
 	});
-	server.on("error", (err: NodeJS.ErrnoException) => {
+	server.on("error", (err: Error & { code?: string }) => {
 		console.error("ssr.server.listen-failed", {
 			port,
 			host,
