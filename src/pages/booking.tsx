@@ -10,6 +10,7 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 import { buildBeautySalonSchema, SITE_URL } from '@/lib/gbp-schema';
 import CompleteYourLook from '@/components/upsell/CompleteYourLook';
 import { useClientAuth } from '@/hooks/useClientAuth';
+import { supabase } from '@/lib/supabase';
 
 // ─── Palette ─────────────────────────────────────────────────────────────────
 const GOLD       = '#C4A882';
@@ -564,25 +565,36 @@ export default function BookingPage() {
         : '';
       const enrichedNotes = `${therapistNote}${addonNote}${form.notes}`.trim();
 
-      const res = await fetch('/api/booking', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, notes: enrichedNotes }),
+      const { error } = await supabase.from('bookings').insert({
+        customer_name: form.name.trim(),
+        customer_phone: form.phone.trim(),
+        customer_email: form.email.trim() || null,
+        service_name: form.service,
+        booking_date: form.date,
+        booking_time: form.time,
+        notes: enrichedNotes || null,
+        status: 'pending',
       });
-      const data = await res.json();
-      if (!res.ok) {
-        if (res.status === 409) {
-          // Slot was taken between selection and submit — go back to date/time step
-          setSubmitError(data.message || 'That time slot is no longer available. Please choose a different time.');
-          setForm(f => ({ ...f, time: '' }));
-          go(1);
-          return;
-        }
-        throw new Error(data.error || 'Submission failed.');
+
+      if (error) {
+        setSubmitError('We couldn\'t save your booking right now. Please try again or call us at 079 041 2758.');
+        return;
       }
-      setWhatsappUrl(data.whatsappUrl || '');
+
+      const msg = encodeURIComponent(
+        `📅 *New Booking Request*\n\n` +
+        `👤 Name: ${form.name.trim()}\n` +
+        `📞 Phone: ${form.phone.trim()}\n` +
+        `💆 Service: ${form.service}\n` +
+        `📆 Date: ${form.date}\n` +
+        `🕐 Time: ${form.time}\n` +
+        (enrichedNotes ? `📝 Notes: ${enrichedNotes}\n` : '') +
+        `\nPlease confirm this appointment.`
+      );
+      setWhatsappUrl(`https://wa.me/962790412758?text=${msg}`);
       setSubmitted(true);
-    } catch (err: unknown) {
-      setSubmitError(err instanceof Error ? err.message : 'Something went wrong. Please call us directly.');
+    } catch {
+      setSubmitError('Something went wrong. Please call us directly at 079 041 2758.');
     } finally { setSubmitting(false); }
   };
 
