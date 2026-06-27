@@ -1,4 +1,3 @@
-import { RouteObject } from 'react-router-dom';
 import { lazy } from 'react';
 import HomePage from './pages/index';
 // Eager import so renderToString doesn't hit a Suspense boundary on 404 routes
@@ -7,9 +6,9 @@ import HomePage from './pages/index';
 // production bundles.
 import ProdNotFoundPage from './pages/_404';
 
-const NotFoundPage = import.meta.env.DEV
-  ? lazy(() => import('../dev-tools/src/PageNotFound'))
-  : ProdNotFoundPage;
+
+
+const NotFoundPage = ProdNotFoundPage;
 
 const ServicesPage = lazy(() => import('./pages/services'));
 const MensServicesPage = lazy(() => import('./pages/mens-services'));

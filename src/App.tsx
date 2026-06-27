@@ -6,7 +6,7 @@ import {
   type RouteObject,
 } from 'react-router-dom';
 
-import AiroErrorBoundary from '../dev-tools/src/AiroErrorBoundary';
+
 import CookieBannerErrorBoundary from '@/components/CookieBannerErrorBoundary';
 import RootLayout from './layouts/RootLayout';
 import Spinner from './components/Spinner';
@@ -42,7 +42,7 @@ const routeTree: RouteObject[] = [
   {
     element:
       import.meta.env.MODE === 'development' ? (
-        <AiroErrorBoundary>{rootElement}</AiroErrorBoundary>
+        <>{rootElement}</>
       ) : (
         rootElement
       ),
