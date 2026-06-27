@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, CheckCircle, Loader2, Sparkles } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 const GOLD = '#C4A882';
 const TAUPE = '#0E2A3A';
@@ -48,26 +49,34 @@ export default function NewsletterSignup({ variant = 'section', source }: Newsle
     setStatus('loading');
     setMessage('');
 
-    try {
-      const res = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), name: name.trim() || undefined }),
-      });
-      const data = await res.json() as { success?: boolean; message?: string; error?: string };
+    const normalizedEmail = email.trim().toLowerCase();
 
-      if (res.ok && data.success) {
-        setStatus('success');
-        setMessage(data.message || 'Thank you for subscribing!');
-        setEmail('');
-        setName('');
-      } else {
+    try {
+      const { error } = await supabase
+        .from('newsletter_subscribers')
+        .insert({ email: normalizedEmail, source: 'website' });
+
+      if (error) {
+        if (error.code === '23505') {
+          setStatus('success');
+          setMessage('You are already subscribed!');
+          setEmail('');
+          setName('');
+          return;
+        }
+
         setStatus('error');
-        setMessage(data.error || 'Something went wrong. Please try again.');
+        setMessage('Something went wrong. Please try again.');
+        return;
       }
+
+      setStatus('success');
+      setMessage('Thank you for subscribing!');
+      setEmail('');
+      setName('');
     } catch {
       setStatus('error');
-      setMessage('Network error. Please try again.');
+      setMessage('Something went wrong. Please try again.');
     }
   };
 
