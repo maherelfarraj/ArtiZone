@@ -23,5 +23,5 @@
     },
     "baseUrl": "."
   },
-  "include": ["src", "vite.config.ts", "plugins"]
+  "include": ["src", "vite.config.ts", "plugins", "format-overrides-plugin.ts", "airo-secrets"]
 }
