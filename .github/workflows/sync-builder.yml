@@ -6,12 +6,16 @@ on:
       - artizone-builder-sync-2026-08-09
     paths:
       - .github/workflows/sync-builder.yml
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
 
 jobs:
   sync:
+    if: github.head_ref == 'artizone-builder-sync-2026-08-09' || github.ref_name == 'artizone-builder-sync-2026-08-09'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sync branch
