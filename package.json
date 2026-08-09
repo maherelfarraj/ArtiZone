@@ -17,7 +17,9 @@
     "type-check": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{ts,tsx,json,md}\"",
     "clean": "rm -rf dist node_modules/.vite",
-    "reset": "npm run clean && npm install"
+    "reset": "npm run clean && npm install",
+    "catalog:dry-run": "node scripts/import-artizone-catalog.mjs",
+    "catalog:apply": "node scripts/import-artizone-catalog.mjs --apply"
   },
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.0.5",
