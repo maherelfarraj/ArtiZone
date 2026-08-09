@@ -22,7 +22,8 @@ jobs:
       - name: Compare builder blob manifest with GitHub objects
         run: |
           set -euo pipefail
-          base64 -d .sync/builder-blobs.txt.gz.b64 | gzip -dc > /tmp/builder-blobs.txt
+          cat .sync/manifest-parts/*.b64 | base64 -d | gzip -dc > /tmp/builder-blobs.txt
+          test "$(wc -l < /tmp/builder-blobs.txt)" -eq 957
           : > .sync/missing-builder-blobs.txt
           total=0
           present=0
