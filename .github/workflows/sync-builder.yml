@@ -1,4 +1,4 @@
-name: Find missing ARTIZONE builder blobs
+name: Map ARTIZONE builder blob presence
 
 on:
   pull_request:
@@ -19,11 +19,12 @@ jobs:
           ref: artizone-builder-sync-2026-08-09
           fetch-depth: 0
 
-      - name: Compare builder blob manifest with GitHub objects
+      - name: Build compact blob-presence map
         run: |
           set -euo pipefail
           cat .sync/manifest-parts/*.b64 | base64 -d | gzip -dc > /tmp/builder-blobs.txt
           test "$(wc -l < /tmp/builder-blobs.txt)" -eq 957
+          : > .sync/presence-bits.txt
           : > .sync/missing-builder-blobs.txt
           total=0
           present=0
@@ -32,13 +33,17 @@ jobs:
           while read -r sha size; do
             total=$((total + 1))
             if git cat-file -e "${sha}^{blob}" 2>/dev/null; then
+              printf '1' >> .sync/presence-bits.txt
               present=$((present + 1))
             else
+              printf '0' >> .sync/presence-bits.txt
               printf '%s %s\n' "$sha" "$size" >> .sync/missing-builder-blobs.txt
               missing=$((missing + 1))
               missing_bytes=$((missing_bytes + size))
             fi
           done < /tmp/builder-blobs.txt
+          printf '\n' >> .sync/presence-bits.txt
+          test "$(tr -d '\n' < .sync/presence-bits.txt | wc -c)" -eq 957
           {
             echo "TOTAL_BUILDER_BLOBS=$total"
             echo "PRESENT_IN_GITHUB=$present"
@@ -48,10 +53,10 @@ jobs:
           cat .sync/missing-builder-summary.txt
           git config user.name 'ARTIZONE Builder Sync'
           git config user.email 'actions@users.noreply.github.com'
-          git add .sync/missing-builder-blobs.txt .sync/missing-builder-summary.txt
+          git add .sync/presence-bits.txt .sync/missing-builder-blobs.txt .sync/missing-builder-summary.txt
           if git diff --cached --quiet; then
-            echo 'Missing-object report unchanged.'
+            echo 'Presence map unchanged.'
             exit 0
           fi
-          git commit -m 'Report missing builder Git blobs'
+          git commit -m 'Add compact builder blob presence map'
           git push origin HEAD:artizone-builder-sync-2026-08-09
