@@ -19,35 +19,48 @@ jobs:
           ref: artizone-builder-sync-2026-08-09
           fetch-depth: 0
 
-      - name: Verify uploaded builder bundle
+      - name: Download and verify builder bundle
         run: |
-          test -f artizone-builder-sync-2026-08-09.bundle
-          echo "1edcbf426a1a05ec45dca8657e9278950bbe13186c3f2a61197337c8440f7752  artizone-builder-sync-2026-08-09.bundle" | sha256sum -c -
-          git bundle verify artizone-builder-sync-2026-08-09.bundle
+          set -euo pipefail
+          PREVIEW='https://3jp2cftx2f.preview.c24.airoapp.ai/artizone-builder-sync-2026-08-09.bundle'
+          LIVE='https://artizonespa.com/artizone-builder-sync-2026-08-09.bundle'
+          if ! curl -fL --retry 2 --retry-delay 2 "$PREVIEW" -o /tmp/artizone-builder.bundle; then
+            echo 'Preview URL unavailable; trying live URL.'
+            curl -fL --retry 2 --retry-delay 2 "$LIVE" -o /tmp/artizone-builder.bundle
+          fi
+          echo '1edcbf426a1a05ec45dca8657e9278950bbe13186c3f2a61197337c8440f7752  /tmp/artizone-builder.bundle' | sha256sum -c -
+          git bundle verify /tmp/artizone-builder.bundle
 
-      - name: Extract builder snapshot
+      - name: Extract exact builder snapshot
         run: |
+          set -euo pipefail
           rm -rf /tmp/artizone-builder
-          git clone artizone-builder-sync-2026-08-09.bundle /tmp/artizone-builder || true
+          git clone /tmp/artizone-builder.bundle /tmp/artizone-builder
           cd /tmp/artizone-builder
           git checkout -B artizone-builder-sync-2026-08-09 origin/artizone-builder-sync-2026-08-09
-          test "$(git rev-parse HEAD)" = "22a00dd33243a6d99726e7d8193fa23cb322aefc"
+          test "$(git rev-parse HEAD)" = '22a00dd33243a6d99726e7d8193fa23cb322aefc'
+          # 22a00dd only added a QA transcript artifact that was explicitly excluded from the project sync.
+          git checkout 4eebb1a -- .
+          rm -f docs/pasted-content-2026-08-09T19-11-08.txt
 
-      - name: Replace branch working tree with verified builder snapshot
+      - name: Replace review branch with builder snapshot
         run: |
+          set -euo pipefail
           rsync -a --delete \
             --exclude='.git/' \
-            --exclude='public/artizone-builder-sync-2026-08-09.bundle' \
             --exclude='.github/workflows/sync-builder.yml' \
             /tmp/artizone-builder/ ./
-          rm -f artizone-builder-sync-2026-08-09.bundle
           rm -f public/artizone-builder-sync-2026-08-09.bundle
+          rm -f artizone-builder-sync-2026-08-09.bundle
+          rm -f docs/pasted-content-2026-08-09T19-11-08.txt
           rm -f .github/workflows/sync-builder.yml
 
       - name: Commit synchronized snapshot
         run: |
-          git config user.name "ARTIZONE Builder Sync"
-          git config user.email "actions@users.noreply.github.com"
+          set -euo pipefail
+          git config user.name 'ARTIZONE Builder Sync'
+          git config user.email 'actions@users.noreply.github.com'
           git add -A
-          git commit -m "Sync ARTIZONE builder loyalty catalog and admin updates"
+          git diff --cached --stat
+          git commit -m 'Sync ARTIZONE builder loyalty catalog and admin updates'
           git push origin HEAD:artizone-builder-sync-2026-08-09
