@@ -67,5 +67,5 @@ jobs:
           test "${#parts[@]}" -eq 30
           cat "${parts[@]}" > /tmp/008.b64
           test "$(wc -c < /tmp/008.b64)" -eq 120000
-          echo '35a195cc0004508946d589c17a6c24f02a005aeca496366991de7e0e36ad78e4  /tmp/008.b64' | sha256sum -c -
+          echo '2989692d516fc991187dee4b817c2cc874998ca8becb531f3041fe33b0960b31  /tmp/008.b64' | sha256sum -c -
           echo 'Chunk 008 exact-byte verification passed.'
