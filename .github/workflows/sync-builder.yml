@@ -1,4 +1,4 @@
-name: ARTIZONE exact chunk 014 assembly
+name: ARTIZONE exact chunk 014 repair
 
 on:
   pull_request:
@@ -9,17 +9,23 @@ permissions:
   contents: write
 
 jobs:
-  assemble-chunk-014:
+  repair-and-assemble-014:
     if: ${{ github.head_ref == 'artizone-builder-sync-2026-08-09' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: artizone-builder-sync-2026-08-09
-      - name: Verify fragments and assemble exact chunk 014
+      - name: Repair 014.05 and assemble exact chunk 014
         shell: bash
         run: |
           set -euo pipefail
+          test "$(wc -c < .sync/payload2k24/014.05.0.b64)" -eq 2000
+          test "$(git hash-object .sync/payload2k24/014.05.0.b64)" = '7a8b63585a4718ae7517115b9aaebbeb26da3b6b'
+          test "$(wc -c < .sync/payload2k24/014.05.1.b64)" -eq 2000
+          test "$(git hash-object .sync/payload2k24/014.05.1.b64)" = 'bf15a1323ff325f96e1b68f07af0d7a5b3f90e63'
+          cat .sync/payload2k24/014.05.0.b64 .sync/payload2k24/014.05.1.b64 > .sync/payload4k24/014.05.b64
+          test "$(git hash-object .sync/payload4k24/014.05.b64)" = '2d8771a525912f8e59d96e0abe8c4964b15a48a6'
           cat > /tmp/expected.tsv <<'EOF'
           014.00 6fc8372b97c1bc03177773929a9413b507dac057
           014.01 2f465bdd00a115ec8b968dfb8558af4d596721ca
@@ -39,10 +45,6 @@ jobs:
           test "$(git hash-object .sync/payload20k/014.b64)" = '9f0fdcb263d9f5aa8fd3244c1d9d9f6cfa314154'
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .sync/payload20k/014.b64
-          if git diff --cached --quiet; then
-            echo 'Chunk 014 already exact; nothing to commit.'
-            exit 0
-          fi
-          git commit -m 'Assemble exact builder payload chunk 014'
+          git add .sync/payload4k24/014.05.b64 .sync/payload20k/014.b64
+          git commit -m 'Repair and assemble exact builder payload chunk 014'
           git push origin HEAD:artizone-builder-sync-2026-08-09
