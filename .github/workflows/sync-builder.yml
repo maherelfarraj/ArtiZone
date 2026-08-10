@@ -1,4 +1,4 @@
-name: ARTIZONE exact chunk 013 assembly
+name: ARTIZONE builder payload staging
 
 on:
   pull_request:
@@ -6,43 +6,11 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  assemble-chunk-013:
-    if: ${{ github.head_ref == 'artizone-builder-sync-2026-08-09' }}
+  staging:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: artizone-builder-sync-2026-08-09
-      - name: Verify fragments and assemble exact chunk 013
-        shell: bash
-        run: |
-          set -euo pipefail
-          cat > /tmp/expected.tsv <<'EOF'
-          013.00 3eb9f864f628bd6e09a7643cd892e6cebfe2c9b2
-          013.01 e95bb3688145f15e7c77bf76036f70f63b2ec831
-          013.02 ce4e2844cd58592e549eaa326e723757bb850e23
-          013.03 bf1a74b9d0b90ddfc1ec59a590c4a6a22af54283
-          013.04 438484e6e4032e7ce6aadc8c4bdd9b08987ac1c8
-          013.05 8f6952ea3dad6297c3a02e48e54dece08528f729
-          EOF
-          while read -r name expected; do
-            path=".sync/payload4k24/${name}.b64"
-            test "$(wc -c < "$path")" -eq 4000
-            test "$(git hash-object "$path")" = "$expected"
-          done < /tmp/expected.tsv
-          cat .sync/payload4k24/013.00.b64 .sync/payload4k24/013.01.b64 .sync/payload4k24/013.02.b64 .sync/payload4k24/013.03.b64 .sync/payload4k24/013.04.b64 .sync/payload4k24/013.05.b64 > .sync/payload20k/013.b64
-          test "$(wc -c < .sync/payload20k/013.b64)" -eq 24000
-          echo '56d95fbe2aaf55747176e8e12c65c8cc334204e4fb1fc6158ee954b86b583290  .sync/payload20k/013.b64' | sha256sum -c -
-          test "$(git hash-object .sync/payload20k/013.b64)" = 'dc2a31a67a2e79cc26d7af55fd6e141fa4bc28e6'
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .sync/payload20k/013.b64
-          if git diff --cached --quiet; then
-            echo 'Chunk 013 already exact; nothing to commit.'
-            exit 0
-          fi
-          git commit -m 'Assemble exact builder payload chunk 013'
-          git push origin HEAD:artizone-builder-sync-2026-08-09
+      - run: echo "Payload staging disabled until exact transfer is complete."
