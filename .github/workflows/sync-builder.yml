@@ -1,0 +1,16 @@
+name: ARTIZONE builder payload staging
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  staging:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Payload staging disabled until exact transfer is complete."

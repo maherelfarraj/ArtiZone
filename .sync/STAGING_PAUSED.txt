@@ -1,0 +1,1 @@
+Payload staging paused during exact-content verification. Do not run reconstruction until payload completeness and hashes are verified.
