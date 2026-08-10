@@ -9,63 +9,32 @@ permissions:
   contents: read
 
 jobs:
-  validate-chunk-008:
+  validate-chunk-009:
     if: ${{ github.head_ref == 'artizone-builder-sync-2026-08-09' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify exact chunk 008 fragments and aggregate
+      - name: Verify exact chunk 009 aggregate
         shell: bash
         run: |
           set -euo pipefail
-          cat > /tmp/expected.tsv <<'EOF'
-          008.00 69ae7aad025dce4a6ca0630b374270b5b78733e7
-          008.01 cf706a4f6be8b4afd814bec637f123798cd0541a
-          008.02 3e994f82e21bf4c1a908448af89f26712ca7ffe2
-          008.03 c64ffead87bd23ef59d6cebf1441005a831e9b9f
-          008.04 ece4b89fe083f15b30c4135e6547311d50bc62b8
-          008.05 02fde3b8a15cc5a174927260cdf821910fe29f84
-          008.06 62157b0ac85e1939cfc7afb903d49bec9a0327ee
-          008.07 df5b76e956828799b616238db52811cd77aa8ae9
-          008.08 8ccf7a449790848b5bf5e50c18ac432d1db8200b
-          008.09 d6b6c38c40dd54ef12b90df10ea8b9e3d67204b6
-          008.10 b65de9516e083217ba6979859410da6c12776233
-          008.11 60c29b67a0a01c872d745c7dc54b3649eb8920f0
-          008.12 c93e5175a4b9bc5bcf4e5172045ff39cf03f1949
-          008.13 e2c48fc566dc9780ad4d53bff4221ea2640e9335
-          008.14 1056dcf7c7d66eac606c6aebd62fe44ce7d3dd81
-          008.15 994d47c7fb44b329d4b5040ea8e8024270e7089f
-          008.16 37946037f98ee0bf844808057bec1e1210165b0b
-          008.17 342ab0a08c4b8ec9c0f04e552cac1536ba97839e
-          008.18 1b40d3b3e211fbd362daf67d06ca3168261435f9
-          008.19 7849a3989ff0acd915e502e0d5d32646ca96afc2
-          008.20 ab048a25029be09bf6e1ed5f2233dedba4abc491
-          008.21 b5984130331f9278a1092e819fc8e2d7d25a9cf0
-          008.22 76a041fa650bb79565bc89c0b8e313a916cd6aea
-          008.23 f432c2b458a0d8e0ce6dfedfdfa5168a062c5d07
-          008.24 04869ad9672c3d7df7851866b6db9c6edfcdc10c
-          008.25 3652504b4b94a374268464876a45d54d48fd5eed
-          008.26 2ac20af17c3be40eab7cad9b0403251a0b698249
-          008.27 3accc7f62251ea307b5fad43a0f533c781501f26
-          008.28 481f59d31f1cbb88ab114464d7cc09c15e3304de
-          008.29 3258da3459238629db8fb2b17974322c43169242
-          EOF
-          failed=0
-          while read -r name expected; do
-            path=".sync/payload4k/${name}.b64"
-            actual=$(git hash-object "$path")
-            size=$(wc -c < "$path")
-            if [[ "$actual" != "$expected" || "$size" -ne 4000 ]]; then
-              echo "MISMATCH $name expected=$expected actual=$actual size=$size"
-              failed=1
-            else
-              echo "OK $name $actual"
-            fi
-          done < /tmp/expected.tsv
-          test "$failed" -eq 0
-          mapfile -t parts < <(printf '%s\n' .sync/payload4k/008.*.b64 | sort)
-          test "${#parts[@]}" -eq 30
-          cat "${parts[@]}" > /tmp/008.b64
-          test "$(wc -c < /tmp/008.b64)" -eq 120000
-          echo '2989692d516fc991187dee4b817c2cc874998ca8becb531f3041fe33b0960b31  /tmp/008.b64' | sha256sum -c -
-          echo 'Chunk 008 exact-byte verification passed.'
+          : > /tmp/009.b64
+          for i in $(seq -w 0 11); do
+            f=".sync/payload4k/009.${i}.b64"
+            test "$(wc -c < "$f")" -eq 4000
+            cat "$f" >> /tmp/009.b64
+          done
+          for f in \
+            .sync/payload12k/009.12-14.b64 \
+            .sync/payload12k/009.15-17.b64 \
+            .sync/payload12k/009.18-20.b64 \
+            .sync/payload12k/009.21-23.b64 \
+            .sync/payload12k/009.24-26.b64 \
+            .sync/payload12k/009.27-29.b64
+          do
+            test "$(wc -c < "$f")" -eq 12000
+            cat "$f" >> /tmp/009.b64
+          done
+          test "$(wc -c < /tmp/009.b64)" -eq 120000
+          echo '60acb6cfb3e9e42644c7ae8ec2041624414588752cc1f02984f22f95607fb1f4  /tmp/009.b64' | sha256sum -c -
+          echo 'Chunk 009 exact-byte verification passed.'
