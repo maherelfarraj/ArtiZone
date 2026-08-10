@@ -1,4 +1,4 @@
-name: ARTIZONE builder payload validation
+name: ARTIZONE exact builder validation
 
 on:
   pull_request:
@@ -9,32 +9,25 @@ permissions:
   contents: read
 
 jobs:
-  validate-chunk-009:
+  validate-drive-bundle:
     if: ${{ github.head_ref == 'artizone-builder-sync-2026-08-09' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Verify exact chunk 009 aggregate
+      - name: Download and verify exact builder bundle
         shell: bash
         run: |
           set -euo pipefail
-          : > /tmp/009.b64
-          for i in $(seq -w 0 11); do
-            f=".sync/payload4k/009.${i}.b64"
-            test "$(wc -c < "$f")" -eq 4000
-            cat "$f" >> /tmp/009.b64
-          done
-          for f in \
-            .sync/payload12k/009.12-14.b64 \
-            .sync/payload12k/009.15-17.b64 \
-            .sync/payload12k/009.18-20.b64 \
-            .sync/payload12k/009.21-23.b64 \
-            .sync/payload12k/009.24-26.b64 \
-            .sync/payload12k/009.27-29.b64
-          do
-            test "$(wc -c < "$f")" -eq 12000
-            cat "$f" >> /tmp/009.b64
-          done
-          test "$(wc -c < /tmp/009.b64)" -eq 120000
-          echo '60acb6cfb3e9e42644c7ae8ec2041624414588752cc1f02984f22f95607fb1f4  /tmp/009.b64' | sha256sum -c -
-          echo 'Chunk 009 exact-byte verification passed.'
+          curl -fL --retry 2 --connect-timeout 20 \
+            'https://drive.usercontent.google.com/download?id=1J67qsub4VlaIblV64IZNjp6ixwAGFRI6&export=download&confirm=t' \
+            -o /tmp/artizone.bundle
+          test "$(wc -c < /tmp/artizone.bundle)" -eq 6945140
+          echo '1edcbf426a1a05ec45dca8657e9278950bbe13186c3f2a61197337c8440f7752  /tmp/artizone.bundle' | sha256sum -c -
+          git init -q /tmp/check
+          cd /tmp/check
+          git bundle verify /tmp/artizone.bundle
+          git fetch -q /tmp/artizone.bundle refs/heads/artizone-builder-sync-2026-08-09
+          test "$(git rev-parse FETCH_HEAD)" = '22a00dd33243a6d99726e7d8193fa23cb322aefc'
+          test "$(git rev-parse 4eebb1a6a61086dbea35200968ba8715f4ec3c34^{tree})" = 'ff7f23cd6525540d039b06e7fb1fbaf6a7f7f249'
+          changed=$(git diff --name-only 4eebb1a6a61086dbea35200968ba8715f4ec3c34..22a00dd33243a6d99726e7d8193fa23cb322aefc)
+          test "$changed" = 'docs/pasted-content-2026-08-09T19-11-08.txt'
+          echo 'Exact bundle and clean parent tree verified.'
