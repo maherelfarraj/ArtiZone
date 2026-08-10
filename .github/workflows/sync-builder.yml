@@ -1,4 +1,4 @@
-name: Diagnose ARTIZONE patch chunks
+name: Validate and sync exact ARTIZONE builder tree
 
 on:
   pull_request:
@@ -6,10 +6,10 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  diagnose:
+  sync:
     if: github.head_ref == 'artizone-builder-sync-2026-08-09'
     runs-on: ubuntu-latest
     steps:
@@ -18,14 +18,54 @@ jobs:
         with:
           ref: artizone-builder-sync-2026-08-09
           fetch-depth: 0
-      - name: Report patch chunk identities
+
+      - name: Reconstruct and validate builder patch
         run: |
           set -euo pipefail
-          for f in .sync/patch-parts/*.b64; do
-            printf '%s %s %s\n' "$(basename "$f")" "$(wc -c < "$f")" "$(git hash-object "$f")"
-          done
-          cat .sync/patch-parts/*.b64 > /tmp/builder_sync.patch.gz.b64
-          sha256sum /tmp/builder_sync.patch.gz.b64
+          cat \
+            .sync/patch-parts/00.b64 \
+            .sync/patch-parts/01.b64 \
+            .sync/patch-parts/02.b64 \
+            .sync/patch-repair/030.b64 \
+            .sync/patch-repair/031.b64 \
+            .sync/patch-repair/032.b64 \
+            .sync/patch-parts/04.b64 \
+            .sync/patch-repair/050.b64 \
+            .sync/patch-repair/051.b64 \
+            .sync/patch-repair/052.b64 \
+            .sync/patch-parts/06.b64 \
+            .sync/patch-parts/07.b64 \
+            .sync/patch-parts/08.b64 \
+            > /tmp/builder_sync.patch.gz.b64
+          echo '142eefe2b2a18a9e8d41c65b85226ed48954bd09f5f65dd446b7d46a57ecd9da  /tmp/builder_sync.patch.gz.b64' | sha256sum -c -
           base64 -d /tmp/builder_sync.patch.gz.b64 | gzip -dc > /tmp/builder_sync.patch
-          sha256sum /tmp/builder_sync.patch
-          wc -c /tmp/builder_sync.patch
+          echo 'fa211b14cc3c695c486a4aacf33de94f4c2c43f01f7193f5db44cd6e019fffb4  /tmp/builder_sync.patch' | sha256sum -c -
+
+      - name: Apply patch onto current main and verify exact builder tree
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout -B artizone-builder-sync-2026-08-09 origin/main
+          if ! git apply --binary --3way --index /tmp/builder_sync.patch; then
+            echo 'PATCH_APPLY_FAILED'
+            git status --short || true
+            exit 21
+          fi
+          ACTUAL_TREE="$(git write-tree)"
+          EXPECTED_TREE='d4378d1b3a32448868ea3ad048985f64df72ce48'
+          echo "ACTUAL_TREE=$ACTUAL_TREE"
+          echo "EXPECTED_TREE=$EXPECTED_TREE"
+          if [ "$ACTUAL_TREE" != "$EXPECTED_TREE" ]; then
+            echo 'TREE_MISMATCH'
+            git diff --cached --stat
+            exit 22
+          fi
+          echo 'TREE_MATCH_EXACT'
+
+      - name: Commit exact snapshot and replace staging branch
+        run: |
+          set -euo pipefail
+          git config user.name 'ARTIZONE Builder Sync'
+          git config user.email 'actions@users.noreply.github.com'
+          git commit -m 'Sync exact ARTIZONE builder snapshot 22a00dd'
+          git push --force origin HEAD:artizone-builder-sync-2026-08-09
