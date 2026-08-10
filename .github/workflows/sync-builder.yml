@@ -17,9 +17,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -fL --retry 2 --connect-timeout 20 \
-            'https://drive.usercontent.google.com/download?id=1J67qsub4VlaIblV64IZNjp6ixwAGFRI6&export=download&confirm=t' \
-            -o /tmp/artizone.bundle
+          python -m pip install -q gdown
+          gdown --id '1J67qsub4VlaIblV64IZNjp6ixwAGFRI6' -O /tmp/artizone.bundle
           test "$(wc -c < /tmp/artizone.bundle)" -eq 6945140
           echo '1edcbf426a1a05ec45dca8657e9278950bbe13186c3f2a61197337c8440f7752  /tmp/artizone.bundle' | sha256sum -c -
           git init -q /tmp/check
