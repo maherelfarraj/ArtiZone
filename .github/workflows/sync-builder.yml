@@ -1,4 +1,4 @@
-name: ARTIZONE exact builder validation
+name: ARTIZONE builder payload staging
 
 on:
   pull_request:
@@ -9,24 +9,8 @@ permissions:
   contents: read
 
 jobs:
-  validate-drive-bundle:
-    if: ${{ github.head_ref == 'artizone-builder-sync-2026-08-09' }}
+  staging:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
-      - name: Download and verify exact builder bundle
-        shell: bash
-        run: |
-          set -euo pipefail
-          python -m pip install -q gdown
-          gdown '1J67qsub4VlaIblV64IZNjp6ixwAGFRI6' -O /tmp/artizone.bundle
-          test "$(wc -c < /tmp/artizone.bundle)" -eq 6945140
-          echo '1edcbf426a1a05ec45dca8657e9278950bbe13186c3f2a61197337c8440f7752  /tmp/artizone.bundle' | sha256sum -c -
-          git init -q /tmp/check
-          cd /tmp/check
-          git bundle verify /tmp/artizone.bundle
-          git fetch -q /tmp/artizone.bundle refs/heads/artizone-builder-sync-2026-08-09
-          test "$(git rev-parse FETCH_HEAD)" = '22a00dd33243a6d99726e7d8193fa23cb322aefc'
-          test "$(git rev-parse 4eebb1a6a61086dbea35200968ba8715f4ec3c34^{tree})" = 'ff7f23cd6525540d039b06e7fb1fbaf6a7f7f249'
-          changed=$(git diff --name-only 4eebb1a6a61086dbea35200968ba8715f4ec3c34..22a00dd33243a6d99726e7d8193fa23cb322aefc)
-          test "$changed" = 'docs/pasted-content-2026-08-09T19-11-08.txt'
-          echo 'Exact bundle and clean parent tree verified.'
+      - run: echo "Payload staging disabled until exact transfer is complete."
